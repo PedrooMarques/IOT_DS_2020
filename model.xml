@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="legendposition" value="1346,40"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and abstract="true" mandatory="true" name="iot_applications">
+			<graphics key="collapsed" value="false"/>
+			<and abstract="true" hidden="true" mandatory="true" name="Connection">
+				<graphics key="collapsed" value="false"/>
+				<feature mandatory="true" name="WifiNetwork"/>
+				<feature mandatory="true" name="InternetConnection"/>
+			</and>
+			<alt abstract="true" mandatory="true" name="Language">
+				<graphics key="collapsed" value="false"/>
+				<feature name="Portuguese"/>
+				<feature name="English"/>
+			</alt>
+			<and abstract="true" name="VisualEmpairment">
+				<graphics key="collapsed" value="false"/>
+				<feature mandatory="true" name="TextToSpeech"/>
+				<feature mandatory="true" name="VoiceCommands"/>
+			</and>
+			<and name="HearingEmpairment">
+				<feature mandatory="true" name="LightSignals"/>
+			</and>
+			<and abstract="true" mandatory="true" name="Input">
+				<graphics key="collapsed" value="false"/>
+				<feature mandatory="true" name="MouseAndKeyboard"/>
+			</and>
+			<and mandatory="true" name="Output">
+				<feature mandatory="true" name="Screen">
+					<graphics key="collapsed" value="false"/>
+				</feature>
+			</and>
+			<and mandatory="true" name="ContactList">
+				<graphics key="collapsed" value="false"/>
+				<feature name="EmergencyContact"/>
+			</and>
+			<feature mandatory="true" name="Warnings"/>
+			<or abstract="true" name="Alerts">
+				<graphics key="collapsed" value="false"/>
+				<feature name="MotionDetection"/>
+				<feature name="Inactivity"/>
+				<feature name="Emergency"/>
+			</or>
+			<or abstract="true" name="AssociatedDevices">
+				<graphics key="collapsed" value="false"/>
+				<feature name="MotionDetector"/>
+				<or name="WearableDevices">
+					<graphics key="collapsed" value="false"/>
+					<feature name="DistressButton"/>
+					<feature name="ActivityMonitor"/>
+				</or>
+				<feature name="SmartBulbs"/>
+			</or>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>MotionDetector</var>
+				<conj>
+					<var>MotionDetection</var>
+					<var>Inactivity</var>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>ActivityMonitor</var>
+				<conj>
+					<var>MotionDetection</var>
+					<var>Inactivity</var>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>DistressButton</var>
+				<var>Emergency</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Alerts</var>
+				<var>EmergencyContact</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>LightSignals</var>
+				<disj>
+					<var>SmartBulbs</var>
+					<var>WearableDevices</var>
+				</disj>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
