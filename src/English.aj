@@ -1,4 +1,8 @@
+import i18n.I18N;
 
 public aspect English {
-	// TODO Auto-generated aspect
+	before() : execution(* *.main(..)) {
+		I18N.setInstance(new I18N("en","US"));
+		System.err.println("This product speaks english.");
+	}
 }
