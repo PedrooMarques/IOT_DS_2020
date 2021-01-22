@@ -3,6 +3,8 @@
  */
 package models;
 
+import java.time.LocalDateTime;
+
 /**
  * @author G16
  *
@@ -13,6 +15,7 @@ public class Alerts {
 	private int duracao;
 	private String divisao;
 	private Period periodo;
+	private LocalDateTime timeStamp;
 
 	/**
 	 * @param tipoAlerta
@@ -20,11 +23,13 @@ public class Alerts {
 	 * @param divisao
 	 * @param periodo
 	 */
-	public Alerts(TipoAlerta tipoAlerta, int duracao, String divisao, Period periodo) {
+	public Alerts(TipoAlerta tipoAlerta, int duracao,
+			String divisao, Period periodo, LocalDateTime timeStamp) {
 		this.tipoAlerta = tipoAlerta;
 		this.duracao = duracao;
 		this.divisao = divisao;
 		this.periodo = periodo;
+		this.timeStamp = timeStamp;
 	}
 	
 	/**
@@ -55,6 +60,12 @@ public class Alerts {
 		return periodo;
 	}
 
+	/**
+	 * @return the timeStamp
+	 */
+	public LocalDateTime getTimeStamp() {
+		return timeStamp;
+	}
 	
 	
 }

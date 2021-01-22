@@ -12,16 +12,14 @@ public class MotionDetectionEvent extends Event {
 	private static final long serialVersionUID = 1L;
 
 	final String detectionArea;
-    final boolean detected;
     final LocalDateTime timeStamp;
 	/**
 	 * @param detectionArea
 	 * @param detected
 	 * @param timeStamp
 	 */
-	public MotionDetectionEvent(String detectionArea, boolean detected, LocalDateTime timeStamp) {
+	public MotionDetectionEvent(String detectionArea, LocalDateTime timeStamp) {
 		this.detectionArea = detectionArea;
-		this.detected = detected;
 		this.timeStamp = timeStamp;
 	}
 
@@ -31,12 +29,7 @@ public class MotionDetectionEvent extends Event {
 	public String getDetectionArea() {
 		return detectionArea;
 	}
-	/**
-	 * @return the detected
-	 */
-	public boolean isDetected() {
-		return detected;
-	}
+
 	/**
 	 * @return the timeStamp
 	 */

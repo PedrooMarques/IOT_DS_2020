@@ -8,5 +8,5 @@ package models;
  *
  */
 public enum TipoAlerta {
-	MOVIMENTO, INATIVIDADE;
+	MOVIMENTO, INATIVIDADE, SOS;
 }
