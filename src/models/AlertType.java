@@ -7,6 +7,6 @@ package models;
  * @author pedro
  *
  */
-public enum TipoAlerta {
+public enum AlertType {
 	MOVIMENTO, INATIVIDADE, SOS;
 }

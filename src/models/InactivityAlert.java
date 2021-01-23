@@ -3,52 +3,80 @@
  */
 package models;
 
+import java.time.Duration;
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * @author G16
  *
  */
 public class InactivityAlert extends Alerts {
 	
-	private int duracao;
-	private Period periodo;
-	
-	//TODO timer
+	private int duration;
+	private Period period;
+	private Duration inactivityDuration;
 
 	/**
-	 * @param tipoAlerta
+	 * @param alertType
 	 */
-	public InactivityAlert(TipoAlerta tipoAlerta) {
-		super(tipoAlerta);
+	public InactivityAlert(AlertType alertType) {
+		super(alertType);
 	}
 
 	/**
-	 * @return the periodo
+	 * @return the duration
 	 */
-	public Period getPeriodo() {
-		return periodo;
+	public int getDuration() {
+		return duration;
 	}
 
 	/**
-	 * @param periodo the periodo to set
+	 * @param duration the duration to set
 	 */
-	public void setPeriodo(Period periodo) {
-		this.periodo = periodo;
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 	/**
-	 * @return the duracao
+	 * @return the period
 	 */
-	public int getDuracao() {
-		return duracao;
+	public Period getPeriod() {
+		return period;
 	}
 
 	/**
-	 * @param duracao the duracao to set
+	 * @param period the period to set
 	 */
-	public void setDuracao(int duracao) {
-		this.duracao = duracao;
+	public void setPeriod(Period period) {
+		this.period = period;
 	}
-	
-	
+
+	/**
+	 * @return the inactivityDuration
+	 */
+	public Duration getInactivityDuration() {
+		return inactivityDuration;
+	}
+
+	/**
+	 * @param inactivityDuration the inactivityDuration to set
+	 */
+	public void setInactivityDuration(Duration inactivityDuration) {
+		this.inactivityDuration = inactivityDuration;
+	}
+
+	public void startTimer() {
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+ 
+            @Override
+            public void run() {
+            	inactivityDuration.plusSeconds(1);
+            	if (inactivityDuration.toMinutes() >= duration) {
+					//TODO
+				}
+            }
+        }, 1000, 1000);
+	}
 
 }

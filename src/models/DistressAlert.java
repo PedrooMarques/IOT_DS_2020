@@ -14,10 +14,10 @@ public class DistressAlert extends Alerts {
 	private LocalDateTime timeStamp;
 	
 	/**
-	 * @param tipoAlerta
+	 * @param alertType
 	 */
-	public DistressAlert(TipoAlerta tipoAlerta) {
-		super(tipoAlerta);
+	public DistressAlert(AlertType alertType) {
+		super(alertType);
 		// TODO Auto-generated constructor stub
 	}
 

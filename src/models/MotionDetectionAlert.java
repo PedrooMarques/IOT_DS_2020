@@ -9,43 +9,44 @@ package models;
  */
 public class MotionDetectionAlert extends Alerts {
 
-	private String divisao;
-	private Period periodo;
+	private String area;
+	private Period period;
 	
 	/**
-	 * @param tipoAlerta
+	 * @param alertType
 	 */
-	public MotionDetectionAlert(TipoAlerta tipoAlerta) {
-		super(tipoAlerta);
+	public MotionDetectionAlert(AlertType alertType) {
+		super(alertType);
 		// TODO Auto-generated constructor stub
 	}
+
+	/**
+	 * @return the area
+	 */
+	public String getArea() {
+		return area;
+	}
+
+	/**
+	 * @param area the area to set
+	 */
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	/**
+	 * @return the period
+	 */
+	public Period getPeriod() {
+		return period;
+	}
+
+	/**
+	 * @param period the period to set
+	 */
+	public void setPeriod(Period period) {
+		this.period = period;
+	}
 	
-	/**
-	 * @return the divisao
-	 */
-	public String getDivisao() {
-		return divisao;
-	}
-
-	/**
-	 * @param divisao the divisao to set
-	 */
-	public void setDivisao(String divisao) {
-		this.divisao = divisao;
-	}
 	
-	/**
-	 * @return the periodo
-	 */
-	public Period getPeriodo() {
-		return periodo;
-	}
-
-	/**
-	 * @param periodo the periodo to set
-	 */
-	public void setPeriodo(Period periodo) {
-		this.periodo = periodo;
-	}
-
 }

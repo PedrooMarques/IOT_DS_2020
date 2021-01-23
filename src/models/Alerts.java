@@ -8,20 +8,20 @@ package models;
  */
 public abstract class Alerts {
 	
-	private TipoAlerta tipoAlerta;
+	private AlertType alertType;
 	
 	/**
-	 * @param tipoAlerta
+	 * @param alertType
 	 */
-	public Alerts(TipoAlerta tipoAlerta) {
-		this.tipoAlerta = tipoAlerta;
+	public Alerts(AlertType alertType) {
+		this.alertType = alertType;
 	}
 
 	/**
-	 * @return the tipoAlerta
+	 * @return the alertType
 	 */
-	public TipoAlerta getTipoAlerta() {
-		return tipoAlerta;
+	public AlertType getTipoAlerta() {
+		return alertType;
 	}	
 	
 }
