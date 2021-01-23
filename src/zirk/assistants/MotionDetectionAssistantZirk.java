@@ -21,14 +21,7 @@ import zirk.events.MotionDetectionEvent;
  *
  */
 public class MotionDetectionAssistantZirk {
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
-    isto falta acabar de alterar
+
 	/**
 	 * 
 	 */
@@ -44,19 +37,7 @@ public class MotionDetectionAssistantZirk {
             public void receiveEvent(Event event, ZirkEndPoint sender) {
                 //Check if this event is of interest
                 if (event instanceof MotionDetectionEvent) {
-                    final MotionDetectionEvent mdDetection = (MotionDetectionEvent) event;
-                    System.err.println("\nReceived air quality update: " + mdDetection.toString());
-                  
-                    //do something in response to this event
-                    if (aqUpdate.getHumidity() > 0.7) {
-                        System.out.println(I18N.getString(HUMIDITY_MSG));
-                    }
-                    if (aqUpdate.getDustLevel() > 20) {
-                        System.out.println(I18N.getString(DUST_MSG));
-                      }
-                    if (aqUpdate.getPollenLevel() > 500) {
-                        System.out.println(I18N.getString(POLLEN_MSG));
-                     }
+                	aspeto
                 }
             }
 

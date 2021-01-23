@@ -1,4 +1,4 @@
-package i18n;
+import i18n.I18N;
 
 public aspect Portuguese {
 	before() : execution(* *.main(..)) {

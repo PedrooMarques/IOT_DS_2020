@@ -8,7 +8,7 @@ public class I18N {
 
 	private final ResourceBundle bundle;
 
-	I18N(String language, String country) {
+	public I18N(String language, String country) {
 		Locale locale = new Locale(language, country);
 		this.bundle = ResourceBundle.getBundle("i18n/Messages", locale);
 	}
@@ -21,7 +21,7 @@ public class I18N {
 	
 	private static I18N instance;
 
-	static void setInstance(I18N i18n) {
+	public static void setInstance(I18N i18n) {
 		 instance = i18n;
 	}
 	
