@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
+import zirk.events.ButtonPressedEvent;
 import zirk.events.MotionDetectionEvent;
 
 /**
@@ -30,19 +31,21 @@ public class WearableDeviceSensorZirk {
 	public void distressButtonPressed() {
 		//produces some  values since this is a mock
 		final LocalDateTime timeStamp = LocalDateTime.now();
-		
+		final ButtonPressedEvent buttonPressedEvent = new ButtonPressedEvent(timeStamp);
+		//sends the event
+        bezirk.sendEvent(buttonPressedEvent);
+        System.err.println("Published button pressed: " + buttonPressedEvent.toString());
 	}
 	
 	public void activityMonitored() {
 		//produces some  values since this is a mock
-        final String detectionArea = "Cozinha";
-        final boolean detected = true;
+        final String detectionArea = "null";
         final LocalDateTime timeStamp = LocalDateTime.now();
         final MotionDetectionEvent motionDetectorDetectionEvent = new MotionDetectionEvent(detectionArea, timeStamp);
 
         //sends the event
         bezirk.sendEvent(motionDetectorDetectionEvent);
-        System.err.println("Published air quality update: " + motionDetectorDetectionEvent.toString());
+        System.err.println("Published motion detection: " + motionDetectorDetectionEvent.toString());
 	}
 
 	/**

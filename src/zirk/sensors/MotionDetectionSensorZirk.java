@@ -38,9 +38,9 @@ public class MotionDetectionSensorZirk {
 
         //sends the event
         bezirk.sendEvent(motionDetectorDetectionEvent);
-        System.err.println("Published air quality update: " + motionDetectorDetectionEvent.toString());
+        System.err.println("Published motion detection: " + motionDetectorDetectionEvent.toString());
 	}
-		
+	
 	//TODO ver o outro metodo, parece opcional mas ver na mesma
 	
 	
