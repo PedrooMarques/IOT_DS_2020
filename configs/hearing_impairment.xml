@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="iot_applications"/>
+	<feature automatic="selected" name="Connection"/>
+	<feature automatic="selected" name="WifiNetwork"/>
+	<feature automatic="selected" name="InternetConnection"/>
+	<feature automatic="selected" name="Language"/>
+	<feature automatic="unselected" name="Portuguese"/>
+	<feature manual="selected" name="English"/>
+	<feature name="VisualEmpairment"/>
+	<feature name="TextToSpeech"/>
+	<feature name="VoiceCommands"/>
+	<feature manual="selected" name="HearingEmpairment"/>
+	<feature automatic="selected" name="LightSignals"/>
+	<feature automatic="selected" name="Input"/>
+	<feature automatic="selected" name="MouseAndKeyboard"/>
+	<feature automatic="selected" name="Output"/>
+	<feature automatic="selected" name="Screen"/>
+	<feature automatic="selected" name="ContactList"/>
+	<feature name="EmergencyContact"/>
+	<feature automatic="selected" name="Warnings"/>
+	<feature name="Alerts"/>
+	<feature name="MotionDetection"/>
+	<feature name="Inactivity"/>
+	<feature name="Emergency"/>
+	<feature automatic="selected" name="AssociatedDevices"/>
+	<feature name="MotionDetector"/>
+	<feature name="WearableDevices"/>
+	<feature name="DistressButton"/>
+	<feature name="ActivityMonitor"/>
+	<feature manual="selected" name="SmartBulbs"/>
+</configuration>

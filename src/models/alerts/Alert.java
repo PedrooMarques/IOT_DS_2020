@@ -1,26 +1,27 @@
 /**
  * 
  */
-package models;
+package models.alerts;
+
 /**
  * @author G16
  *
  */
-public abstract class Alerts {
+public abstract class Alert {
 	
 	private AlertType alertType;
 	
 	/**
 	 * @param alertType
 	 */
-	public Alerts(AlertType alertType) {
+	public Alert(AlertType alertType) {
 		this.alertType = alertType;
 	}
 
 	/**
 	 * @return the alertType
 	 */
-	public AlertType getTipoAlerta() {
+	public AlertType getAlertType() {
 		return alertType;
 	}	
 	

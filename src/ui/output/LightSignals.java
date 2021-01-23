@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models;
+package ui.output;
 
 /**
  * @author G16

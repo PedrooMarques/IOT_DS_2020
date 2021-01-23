@@ -1,45 +1,38 @@
 /**
  * 
  */
-package zirk.sensors;
+package zirk.devices;
+
+import static i18n.Messages.DEVICE_RUNNING;
 
 import java.time.LocalDateTime;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import zirk.events.ButtonPressedEvent;
+import i18n.I18N;
 import zirk.events.MotionDetectionEvent;
 
 /**
  * @author G16
  *
  */
-public class WearableDeviceSensorZirk {
-
-	private Bezirk bezirk;
+public class MotionDetectorZirk {
 	
+	private Bezirk bezirk;
+
 	/**
 	 * 
 	 */
-	public WearableDeviceSensorZirk() {
+	public MotionDetectorZirk() {
 		BezirkMiddleware.initialize();
-        bezirk = BezirkMiddleware.registerZirk("Wearable Device Zirk");
+        bezirk = BezirkMiddleware.registerZirk("Motion Detector Zirk");
         System.err.println("Got Bezirk instance");
 	}
 	
-	public void distressButtonPressed() {
+	public void sendMotionDetection() {
 		//produces some  values since this is a mock
-		final LocalDateTime timeStamp = LocalDateTime.now();
-		final ButtonPressedEvent buttonPressedEvent = new ButtonPressedEvent(timeStamp);
-		//sends the event
-        bezirk.sendEvent(buttonPressedEvent);
-        System.err.println("Published button pressed: " + buttonPressedEvent.toString());
-	}
-	
-	public void activityMonitored() {
-		//produces some  values since this is a mock
-        final String detectionArea = "null";
+        final String detectionArea = "Cozinha";
         final LocalDateTime timeStamp = LocalDateTime.now();
         final MotionDetectionEvent motionDetectorDetectionEvent = new MotionDetectionEvent(detectionArea, timeStamp);
 
@@ -47,13 +40,22 @@ public class WearableDeviceSensorZirk {
         bezirk.sendEvent(motionDetectorDetectionEvent);
         System.err.println("Published motion detection: " + motionDetectorDetectionEvent.toString());
 	}
+	
+	//TODO ver o outro metodo, parece opcional mas ver na mesma
+	
+	
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		MotionDetectorZirk motionDetectionSensorZirk = new MotionDetectorZirk();
+        System.err.println("This product has a Motion Detector Sensor");
+        
+        //TODO mudar as mensagens que aproveitamos da prof
+        System.err.println(I18N.getString(DEVICE_RUNNING, "Air Quality Sensor"));
+        motionDetectionSensorZirk.sendMotionDetection();
 	}
 
 }

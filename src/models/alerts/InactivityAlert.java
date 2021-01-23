@@ -1,17 +1,19 @@
 /**
  * 
  */
-package models;
+package models.alerts;
 
 import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import models.Period;
+
 /**
  * @author G16
  *
  */
-public class InactivityAlert extends Alerts {
+public class InactivityAlert extends Alert {
 	
 	private int duration;
 	private Period period;

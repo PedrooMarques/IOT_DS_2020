@@ -5,8 +5,8 @@
 	<feature automatic="selected" name="WifiNetwork"/>
 	<feature automatic="selected" name="InternetConnection"/>
 	<feature automatic="selected" name="Language"/>
-	<feature name="Portuguese"/>
-	<feature name="English"/>
+	<feature automatic="unselected" name="Portuguese"/>
+	<feature manual="selected" name="English"/>
 	<feature name="VisualEmpairment"/>
 	<feature name="TextToSpeech"/>
 	<feature name="VoiceCommands"/>

@@ -1,12 +1,12 @@
 /**
  * 
  */
-package zirk.assistants;
+package handlers;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import models.LightSignals;
+import ui.output.LightSignals;
 import zirk.events.LightSignalsEvent;
 
 /**

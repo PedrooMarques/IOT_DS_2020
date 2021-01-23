@@ -1,13 +1,15 @@
 /**
  * 
  */
-package models;
+package models.alerts;
+
+import models.Period;
 
 /**
  * @author G16
  *
  */
-public class MotionDetectionAlert extends Alerts {
+public class MotionDetectionAlert extends Alert {
 
 	private String area;
 	private Period period;
@@ -15,9 +17,8 @@ public class MotionDetectionAlert extends Alerts {
 	/**
 	 * @param alertType
 	 */
-	public MotionDetectionAlert(AlertType alertType) {
-		super(alertType);
-		// TODO Auto-generated constructor stub
+	public MotionDetectionAlert() {
+		super(AlertType.MOTION_DETECTION);
 	}
 
 	/**

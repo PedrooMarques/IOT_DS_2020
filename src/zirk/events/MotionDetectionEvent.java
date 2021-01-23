@@ -10,17 +10,17 @@ import com.bezirk.middleware.messages.Event;
 public class MotionDetectionEvent extends Event {
 	
 	private static final long serialVersionUID = 1L;
+	private final String detectionArea;
+    private final LocalDateTime timestamp;
 
-	final String detectionArea;
-    final LocalDateTime timeStamp;
 	/**
 	 * @param detectionArea
 	 * @param detected
-	 * @param timeStamp
+	 * @param timestamp
 	 */
-	public MotionDetectionEvent(String detectionArea, LocalDateTime timeStamp) {
+	public MotionDetectionEvent(String detectionArea, LocalDateTime timestamp) {
 		this.detectionArea = detectionArea;
-		this.timeStamp = timeStamp;
+		this.timestamp = timestamp;
 	}
 
 	/**
@@ -31,10 +31,10 @@ public class MotionDetectionEvent extends Event {
 	}
 
 	/**
-	 * @return the timeStamp
+	 * @return the timestamp
 	 */
-	public LocalDateTime getTimeStamp() {
-		return timeStamp;
+	public LocalDateTime getTimestamp() {
+		return timestamp;
 	}
     
     //TODO toString

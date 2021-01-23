@@ -1,7 +1,7 @@
 /**
  * 
  */
-package zirk.assistants;
+package handlers;
 
 import static i18n.Messages.DUST_MSG;
 import static i18n.Messages.HUMIDITY_MSG;

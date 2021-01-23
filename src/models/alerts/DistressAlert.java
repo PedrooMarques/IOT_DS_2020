@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models;
+package models.alerts;
 
 import java.time.LocalDateTime;
 
@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
  * @author G16
  *
  */
-public class DistressAlert extends Alerts {
+public class DistressAlert extends Alert {
 
 	private LocalDateTime timeStamp;
 	
