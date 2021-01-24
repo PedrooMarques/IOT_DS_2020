@@ -1,5 +1,12 @@
 package persistence;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class PersistanceManager {
 
 	private String fileName;
@@ -15,11 +22,27 @@ public class PersistanceManager {
 	}
 
 	public OutputStream read() {
-		return new FileOutputStream(this.file);
+		FileOutputStream fos = null;
+		try {
+			fos = new FileOutputStream(this.file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return fos;
 	}
 
 	public InputStream write() {
-		return new FileinputStream(this.file);
+		FileInputStream fis = null;
+		try {
+			fis = new FileInputStream(this.file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return fis;
 	}
 
 }
