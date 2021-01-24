@@ -1,9 +1,9 @@
 /**
  * 
  */
-package models.alerts;
+package handlers.alerts;
 
-import models.Period;
+import helpers.Period;
 
 /**
  * @author G16

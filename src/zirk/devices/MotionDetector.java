@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
+import devices.DeviceType;
 import i18n.I18N;
 import zirk.events.MotionDetectionEvent;
 
@@ -17,17 +18,10 @@ import zirk.events.MotionDetectionEvent;
  * @author G16
  *
  */
-public class MotionDetectorZirk {
-	
-	private Bezirk bezirk;
+public class MotionDetector extends Device {
 
-	/**
-	 * 
-	 */
-	public MotionDetectorZirk() {
-		BezirkMiddleware.initialize();
-        bezirk = BezirkMiddleware.registerZirk("Motion Detector Zirk");
-        System.err.println("Got Bezirk instance");
+	public MotionDetector() {
+		super(DeviceType.MOTION_DETECTOR);
 	}
 	
 	public void sendMotionDetection() {
@@ -39,23 +33,6 @@ public class MotionDetectorZirk {
         //sends the event
         bezirk.sendEvent(motionDetectorDetectionEvent);
         System.err.println("Published motion detection: " + motionDetectorDetectionEvent.toString());
-	}
-	
-	//TODO ver o outro metodo, parece opcional mas ver na mesma
-	
-	
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		
-		MotionDetectorZirk motionDetectionSensorZirk = new MotionDetectorZirk();
-        System.err.println("This product has a Motion Detector Sensor");
-        
-        //TODO mudar as mensagens que aproveitamos da prof
-        System.err.println(I18N.getString(DEVICE_RUNNING, "Air Quality Sensor"));
-        motionDetectionSensorZirk.sendMotionDetection();
 	}
 
 }

@@ -2,12 +2,11 @@ package zirk.events;
 
 import java.time.LocalDateTime;
 
-import com.bezirk.middleware.messages.Event;
 /**
  * @author G16
  *
  */
-public class MotionDetectionEvent extends Event {
+public class MotionDetectionEvent extends DeviceEvent {
 	
 	private static final long serialVersionUID = 1L;
 	private final String detectionArea;

@@ -17,16 +17,16 @@
 	<feature automatic="selected" name="Output"/>
 	<feature automatic="selected" name="Screen"/>
 	<feature automatic="selected" name="ContactList"/>
-	<feature name="EmergencyContact"/>
+	<feature automatic="selected" name="EmergencyContact"/>
 	<feature automatic="selected" name="Warnings"/>
-	<feature name="Alerts"/>
+	<feature automatic="selected" name="Alerts"/>
 	<feature name="MotionDetection"/>
 	<feature name="Inactivity"/>
-	<feature name="Emergency"/>
+	<feature automatic="selected" name="Emergency"/>
 	<feature automatic="selected" name="AssociatedDevices"/>
 	<feature name="MotionDetector"/>
-	<feature name="WearableDevices"/>
-	<feature name="DistressButton"/>
+	<feature automatic="selected" name="WearableDevices"/>
+	<feature manual="selected" name="DistressButton"/>
 	<feature name="ActivityMonitor"/>
 	<feature manual="selected" name="SmartBulbs"/>
 </configuration>

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models.contacts;
+package handlers.contacts;
 
 import java.util.ArrayList;
 

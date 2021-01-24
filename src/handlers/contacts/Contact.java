@@ -1,4 +1,4 @@
-package models.contacts;
+package handlers.contacts;
 
 public class Contact {
 

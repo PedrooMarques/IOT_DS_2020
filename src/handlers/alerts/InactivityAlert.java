@@ -1,13 +1,13 @@
 /**
  * 
  */
-package models.alerts;
+package handlers.alerts;
 
 import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import models.Period;
+import helpers.Period;
 
 /**
  * @author G16

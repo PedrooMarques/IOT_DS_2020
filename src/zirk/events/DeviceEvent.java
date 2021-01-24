@@ -7,10 +7,12 @@ import com.bezirk.middleware.messages.Event;
 public abstract class DeviceEvent extends Event {
 
 	private static final long serialVersionUID = 1L;
-	private final LocalDateTime timestamp;
+	protected final EventType eventType;
+	protected final LocalDateTime timestamp;
 
-	public DeviceEvent() {
+	public DeviceEvent(EventType eventType) {
 		super();
+		this.eventType = eventType;
 		this.timestamp = new LocalDateTime();
 	}
 

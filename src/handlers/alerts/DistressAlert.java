@@ -1,7 +1,7 @@
 /**
  * 
  */
-package models.alerts;
+package handlers.alerts;
 
 import java.time.LocalDateTime;
 
