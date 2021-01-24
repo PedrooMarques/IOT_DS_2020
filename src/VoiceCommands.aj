@@ -20,9 +20,9 @@ public aspect VoiceCommands {
 			@Override
 			public void run() {
 				System.out.println("**Executing Voice Command**");
-				System.out.println(I18N.getInstance().getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", ContactHandler.getInstance().getContacts().getContactList().size());
+				System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
 			}
-		}
+		};
 		MenuChoice choice = new MenuChoice(message, task);
 		newChoices.add(choice);
 		proceed(newChoices);
