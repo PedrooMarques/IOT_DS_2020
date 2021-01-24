@@ -10,7 +10,6 @@ public class MotionDetectionEvent extends DeviceEvent {
 	
 	private static final long serialVersionUID = 1L;
 	private final String detectionArea;
-    private final LocalDateTime timestamp;
 
 	/**
 	 * @param detectionArea
@@ -18,8 +17,8 @@ public class MotionDetectionEvent extends DeviceEvent {
 	 * @param timestamp
 	 */
 	public MotionDetectionEvent(String detectionArea, LocalDateTime timestamp) {
+		super(EventType.MOTION_DETECTION, timestamp);
 		this.detectionArea = detectionArea;
-		this.timestamp = timestamp;
 	}
 
 	/**
@@ -27,13 +26,6 @@ public class MotionDetectionEvent extends DeviceEvent {
 	 */
 	public String getDetectionArea() {
 		return detectionArea;
-	}
-
-	/**
-	 * @return the timestamp
-	 */
-	public LocalDateTime getTimestamp() {
-		return timestamp;
 	}
     
     //TODO toString
