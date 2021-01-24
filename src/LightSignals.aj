@@ -8,10 +8,10 @@ import handlers.devices.DeviceHandler;
 
 public aspect LightSignals {
 
-	pointcut lightSingalEventDetected(DeviceEvent event, ZirkEndPoint sender):
+	pointcut lightSignalEventDetected(DeviceEvent event, ZirkEndPoint sender):
 		call(void DeviceHandler.handleEvent(DeviceEvent, ZirkEndPoint)) && args(event, sender);
 	
-	void around(DeviceEvent event, ZirkEndPoint sender) : lightSingalEventDetected(event, sender) {
+	void around(DeviceEvent event, ZirkEndPoint sender): lightSignalEventDetected(event, sender) {
         if (event instanceof LightSignalEvent) {
         	
         }

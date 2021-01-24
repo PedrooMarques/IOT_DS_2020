@@ -28,4 +28,15 @@ public class AlertHandler {
 		ContactHandler.getInstance().sendEmergencySMS(message);
 	}
 
+	public void handleMotionDetection(MotionDetectionEvent event) {
+		for (Alert alert: this.alerts.getAlertList()) {
+			if (alert instanceof MotionDetectionAlert) {
+				((MotionDetectionAlert) alert).alert();
+			}
+			if (alert instanceof InactivityAlert) {
+				((InactivityAlert) alert).cancel();
+			}
+		}
+	}
+
 }
