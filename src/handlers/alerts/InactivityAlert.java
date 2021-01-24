@@ -21,11 +21,12 @@ public class InactivityAlert extends Alert {
 	public InactivityAlert(int duration) {
 		super(AlertType.INACTIVITY);
 		this.duration = duration;
-		this.timer = Timer().schedule(new TimerTask() {
+		this.timer = new Timer();
+		timer.schedule(new TimerTask() {
             @Override
             public void run() {
             	String defaultMessage = "Inactivity Alert! {0} minutes";
-            	int minutes = this.duration / 1000 / 60;
+            	int minutes = duration / 1000 / 60;
             	String message = I18N.getString(Messages.INACTIVITY_ALERT, defaultMessage, Integer.toString(minutes));
             	AlertHandler.getInstance().alert(message);
             }

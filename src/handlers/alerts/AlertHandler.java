@@ -1,5 +1,6 @@
 package handlers.alerts;
 
+import handlers.contacts.ContactHandler;
 import ui.output.Output;
 
 public class AlertHandler {

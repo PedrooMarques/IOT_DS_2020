@@ -1,6 +1,7 @@
 package ui.input;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import helpers.MenuChoice;
 import i18n.I18N;
@@ -41,6 +42,7 @@ public class Input {
 			}
 			System.out.println(I18N.getString(Messages.CHOICE_NOT_FOUND, "Please enter a valid option"));
 		}
+		scanner.close();
 	}
 
 }

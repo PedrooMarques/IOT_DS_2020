@@ -88,7 +88,8 @@ public class Warning {
 		default:
 			break;
 		}
-		this.timer = Timer().scheduleAtFixedRate(task, 0, time * this.frequencyNumber);
+		this.timer = new Timer();
+		timer.scheduleAtFixedRate(task, 0, time * this.frequencyNumber);
 	}
 
 }

@@ -22,7 +22,7 @@ public class MenuChoice {
 	}
 
 	public void run() {
-		this.runnable.run();
+		this.task.run();
 	}
 
 }

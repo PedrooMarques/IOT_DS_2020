@@ -15,12 +15,12 @@ public class AlertCatalog {
 	}
 
 	public Alert addAlert(Alert alert) {
-		this.contacts.add(alert);
+		this.alerts.add(alert);
 		return alert;
 	}
 
 	public Alert removeAlert(Alert alert) {
-		this.contacts.remove(alert);
+		this.alerts.remove(alert);
 		return alert;
 	}
 

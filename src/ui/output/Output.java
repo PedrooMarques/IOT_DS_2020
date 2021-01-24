@@ -16,15 +16,15 @@ public class Output {
 	}
 
 	public void showMessage(String message) {
-		Sytem.out.println(message);
+		System.out.println(message);
 	}
 
 	public void showWarning(String message) {
-		Sytem.err.println(message);
+		System.err.println(message);
 	}
 
 	public void showAlert(String message) {
-		Sytem.err.println(message);
+		System.err.println(message);
 	}
 
 }
