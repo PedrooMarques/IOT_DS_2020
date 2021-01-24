@@ -7,6 +7,7 @@ import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
 import ui.output.LightSignals;
+import zirk.events.LightSignalEvent;
 import zirk.events.LightSignalsEvent;
 
 /**
@@ -23,7 +24,7 @@ public class LightSignalsAssistantZirk {
         final Bezirk bezirk = BezirkMiddleware.registerZirk("Light Signals Assistant Zirk");
         System.err.println("Got Bezirk instance");
 
-        final LightSignalsEvent lightSignalsEvent = new LightSignalsEvent(signal);
+        final LightSignalEvent lightSignalsEvent = new LightSignalEvent(signal);
         
         bezirk.sendEvent(lightSignalsEvent);
 	}

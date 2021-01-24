@@ -11,7 +11,7 @@ public abstract class DeviceEvent extends Event {
 
 	public DeviceEvent() {
 		super();
-		this.timestamp = new LocalDateTime();
+		this.timestamp = LocalDateTime.now();
 	}
 
 	public LocalDateTime getTimestamp() {

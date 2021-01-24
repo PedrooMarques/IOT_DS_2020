@@ -35,12 +35,8 @@ public class MotionDetectionAssistantZirk {
         motionDetectionEvents.setEventReceiver(new EventSet.EventReceiver() {
             @Override
             public void receiveEvent(Event event, ZirkEndPoint sender) {
-                //Check if this event is of interest
-                if (event instanceof MotionDetectionEvent) {
-                	aspeto
-                }
+            	System.err.println("PRINT SOME MESSAGE OR SEND TO OUTPUT");
             }
-
         });
         bezirk.subscribe(motionDetectionEvents);
 	}
@@ -50,7 +46,7 @@ public class MotionDetectionAssistantZirk {
 	 */
 	public static void main(String[] args) {
 		new MotionDetectionAssistantZirk();
-        System.err.println("This product has a Motion Detection Assistant");
+        System.err.println("This product has a Motion Detection Assistant");        
 	}
 
 }

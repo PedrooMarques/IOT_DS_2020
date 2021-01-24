@@ -3,6 +3,8 @@
  */
 package zirk.events;
 
+import com.bezirk.middleware.messages.Event;
+
 /**
  * @author G16
  *

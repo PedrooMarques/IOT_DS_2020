@@ -3,7 +3,6 @@
  */
 package models.warnings;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +21,7 @@ public class Warnings {
 		return this.warnings;
 	}
 
-	public Warning addWarning(Contact warning) {
+	public Warning addWarning(Warning warning) {
 		this.warnings.add(warning);
 		return warning;
 	}
