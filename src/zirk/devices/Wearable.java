@@ -20,10 +20,10 @@ import zirk.events.MotionDetectionEvent;
  * @author G16
  *
  */
-public class Wearable {
+public class Wearable extends Device{
 
-	public Wearable() {
-		super(DeviceType.WEARABLE);
+	public Wearable(Bezirk bezirk) {
+		super(bezirk, DeviceType.WEARABLE);
 		final DeviceHandler deviceHandler = DeviceHandler.getInstance();
 		EventSet events = new EventSet(DistressButtonEvent.class, MotionDetectionEvent.class);
         EventReceiver eventReceiver = new EventSet.EventReceiver() {
