@@ -1,5 +1,5 @@
 import com.bezirk.middleware.addressing.ZirkEndPoint;
-
+import handlers.devices.DeviceHandler;
 import handlers.alerts.AlertHandler;
 import zirk.events.DeviceEvent;
 import zirk.events.MotionDetectionEvent;
@@ -14,5 +14,4 @@ public aspect MotionDetector {
         	AlertHandler.getInstance().handleMotionDetection((MotionDetectionEvent)event);
         }
 	}
-
 }

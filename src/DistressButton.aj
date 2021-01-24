@@ -5,6 +5,7 @@ import i18n.I18N;
 import i18n.Messages;
 import zirk.events.DeviceEvent;
 import zirk.events.DistressButtonEvent;
+import handlers.devices.DeviceHandler;
 
 public aspect DistressButton {
 

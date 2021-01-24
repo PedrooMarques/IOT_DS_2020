@@ -2,6 +2,7 @@ package handlers.alerts;
 
 import handlers.contacts.ContactHandler;
 import ui.output.Output;
+import zirk.events.MotionDetectionEvent;
 
 public class AlertHandler {
 

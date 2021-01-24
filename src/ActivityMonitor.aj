@@ -3,6 +3,7 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import handlers.alerts.AlertHandler;
 import zirk.events.DeviceEvent;
 import zirk.events.MotionDetectionEvent;
+import handlers.devices.DeviceHandler;
 
 public aspect ActivityMonitor {
 
