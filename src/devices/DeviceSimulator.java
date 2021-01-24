@@ -7,9 +7,9 @@ public abstract class DeviceSimulator {
 	
 	protected final Bezirk bezirk;
 
-	public DeviceSimulator(String deviceType) {
+	public DeviceSimulator(DeviceType deviceType) {
 		BezirkMiddleware.initialize();
-        this.bezirk = BezirkMiddleware.registerZirk(deviceType);
+        this.bezirk = BezirkMiddleware.registerZirk(deviceType.name());
 	}
 
 }

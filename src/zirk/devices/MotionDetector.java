@@ -3,6 +3,7 @@
  */
 package zirk.devices;
 
+import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
@@ -19,8 +20,8 @@ import zirk.events.MotionDetectionEvent;
  */
 public class MotionDetector extends Device {
 
-	public MotionDetector() {
-		super(DeviceType.MOTION_DETECTOR);
+	public MotionDetector(Bezirk bezirk) {
+		super(bezirk, DeviceType.MOTION_DETECTOR);
 		final DeviceHandler deviceHandler = DeviceHandler.getInstance();
 		EventSet events = new EventSet(MotionDetectionEvent.class);
         EventReceiver eventReceiver = new EventSet.EventReceiver() {

@@ -2,6 +2,7 @@ package devices;
 
 import java.time.LocalDateTime;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
@@ -19,10 +20,12 @@ public class Wearable extends DeviceSimulator {
 	
 	public static void main(String[] args) {
 		Wearable wearableZirk = new Wearable();
+		SmartBulb smartBulbZirk = new SmartBulb();
 		System.out.println("Running Wearable Device Simulator");
         TimerTask task = new TimerTask() {
             public void run() {
-                DistressButtonEvent distressButtonEvent = new DistressButtonEvent();
+            	LocalDateTime timestamp = LocalDateTime.now();
+                DistressButtonEvent distressButtonEvent = new DistressButtonEvent(timestamp);
                 wearableZirk.bezirk.sendEvent(distressButtonEvent);
                 System.err.println("Published Distress Button event");
             }

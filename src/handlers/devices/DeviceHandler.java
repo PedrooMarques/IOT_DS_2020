@@ -2,6 +2,7 @@ package handlers.devices;
 
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 
+import zirk.devices.Device;
 import zirk.events.DeviceEvent;
 
 public class DeviceHandler {
@@ -20,7 +21,7 @@ public class DeviceHandler {
 	}
 
 	public void handleEvent(DeviceEvent event, ZirkEndPoint sender) {
-		
+		//Aspects
 	}
 
 	public void sendEvent(DeviceEvent event, Device device) {
