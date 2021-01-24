@@ -1,6 +1,9 @@
 import ui.output.Output;
 import zirk.events.DeviceEvent;
 import zirk.events.LightSignalEvent;
+
+import com.bezirk.middleware.addressing.ZirkEndPoint;
+
 import handlers.devices.DeviceHandler;
 
 public aspect LightSignals {
