@@ -15,7 +15,7 @@ public aspect VoiceCommands {
 		for (MenuChoice c: choices) {
 			newChoices.add(c);
 		}
-		String message = I18N.getInstance().getString(Messages.VOICE_COMMAND, "**Voice Command**");
+		String message = "**Voice Command**";
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
