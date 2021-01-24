@@ -14,6 +14,12 @@ public aspect LightSignals {
         }
 	}
 
+	void around(): execution(void Output.showWarning()) {
+		proceed();
+		LightSignalEvent event = new LightSignalEvent();
+		DeviceHandler.getInstance().sendEvent(event, null);
+	}
+
 	void around(): execution(void Output.showAlert()) {
 		proceed();
 		LightSignalEvent event = new LightSignalEvent();

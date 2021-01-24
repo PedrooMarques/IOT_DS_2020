@@ -9,11 +9,11 @@ import java.util.ArrayList;
  * @author G16
  *
  */
-public class Warnings {
+public class WarningCatalog {
 	
 	private ArrayList<Warning> warnings;
 	
-	public Warnings() {
+	public WarningCatalog() {
 		this.warnings = new ArrayList<Warning>();
 	}
 

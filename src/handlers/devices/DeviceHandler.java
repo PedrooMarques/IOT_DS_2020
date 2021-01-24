@@ -21,11 +21,11 @@ public class DeviceHandler {
 	}
 
 	public void handleEvent(DeviceEvent event, ZirkEndPoint sender) {
-		//Aspects
+		// This method is implemented in aspects
 	}
 
 	public void sendEvent(DeviceEvent event, Device device) {
-		
+		// This method is implemented in aspects
 	}
 
 }

@@ -1,13 +1,10 @@
-/**
- * 
- */
 package handlers.alerts;
 
-import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import helpers.Period;
+import i18n.I18N;
+import i18n.Messages;
 
 /**
  * @author G16
@@ -15,15 +12,24 @@ import helpers.Period;
  */
 public class InactivityAlert extends Alert {
 	
-	private int duration;
-	private Period period;
-	private Duration inactivityDuration;
+	private final int duration;
+	private final Timer timer;
 
 	/**
 	 * @param alertType
 	 */
-	public InactivityAlert(AlertType alertType) {
-		super(alertType);
+	public InactivityAlert(int duration) {
+		super(AlertType.INACTIVITY);
+		this.duration = duration;
+		this.timer = Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+            	String defaultMessage = "Inactivity Alert! {0} minutes";
+            	int minutes = this.duration / 1000 / 60;
+            	String message = I18N.getString(Messages.INACTIVITY_ALERT, defaultMessage, Integer.toString(minutes));
+            	AlertHandler.getInstance().alert(message);
+            }
+        }, this.duration);
 	}
 
 	/**
@@ -33,52 +39,8 @@ public class InactivityAlert extends Alert {
 		return duration;
 	}
 
-	/**
-	 * @param duration the duration to set
-	 */
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-
-	/**
-	 * @return the period
-	 */
-	public Period getPeriod() {
-		return period;
-	}
-
-	/**
-	 * @param period the period to set
-	 */
-	public void setPeriod(Period period) {
-		this.period = period;
-	}
-
-	/**
-	 * @return the inactivityDuration
-	 */
-	public Duration getInactivityDuration() {
-		return inactivityDuration;
-	}
-
-	/**
-	 * @param inactivityDuration the inactivityDuration to set
-	 */
-	public void setInactivityDuration(Duration inactivityDuration) {
-		this.inactivityDuration = inactivityDuration;
-	}
-
-	public void startTimer() {
-        new Timer().scheduleAtFixedRate(new TimerTask() {
- 
-            @Override
-            public void run() {
-            	inactivityDuration.plusSeconds(1);
-            	if (inactivityDuration.toMinutes() >= duration) {
-					//TODO
-				}
-            }
-        }, 1000, 1000);
+	public void cancel() {
+		this.timer.cancel();
 	}
 
 }

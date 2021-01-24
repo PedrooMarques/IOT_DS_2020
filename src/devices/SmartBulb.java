@@ -1,8 +1,5 @@
 package devices;
 
-import java.time.LocalDateTime;
-import java.util.Timer;
-
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;

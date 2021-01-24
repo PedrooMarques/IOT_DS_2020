@@ -26,4 +26,8 @@ public class Contact {
 		this.phoneNumber = phoneNumber;
 	}
 
+	protected void sendSMS(String message) {
+		System.out.println("**SMS Sent**");
+	}
+
 }
