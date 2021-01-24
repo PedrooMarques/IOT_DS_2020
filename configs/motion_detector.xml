@@ -20,13 +20,13 @@
 	<feature automatic="selected" name="EmergencyContact"/>
 	<feature automatic="selected" name="Warnings"/>
 	<feature automatic="selected" name="Alerts"/>
-	<feature name="MotionDetection"/>
-	<feature name="Inactivity"/>
-	<feature automatic="selected" name="Emergency"/>
+	<feature automatic="selected" name="MotionDetection"/>
+	<feature automatic="selected" name="Inactivity"/>
+	<feature name="Emergency"/>
 	<feature automatic="selected" name="AssociatedDevices"/>
-	<feature name="MotionDetector"/>
-	<feature automatic="selected" name="WearableDevices"/>
-	<feature manual="selected" name="DistressButton"/>
+	<feature manual="selected" name="MotionDetector"/>
+	<feature name="WearableDevices"/>
+	<feature name="DistressButton"/>
 	<feature name="ActivityMonitor"/>
 	<feature name="SmartBulbs"/>
 </configuration>
