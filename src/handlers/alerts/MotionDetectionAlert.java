@@ -1,9 +1,7 @@
-/**
- * 
- */
 package handlers.alerts;
 
-import helpers.Period;
+import i18n.I18N;
+import i18n.Messages;
 
 /**
  * @author G16
@@ -11,43 +9,23 @@ import helpers.Period;
  */
 public class MotionDetectionAlert extends Alert {
 
-	private String area;
-	private Period period;
-	
-	/**
-	 * @param alertType
-	 */
+	private String location;
+
 	public MotionDetectionAlert() {
 		super(AlertType.MOTION_DETECTION);
 	}
 
 	/**
-	 * @return the area
+	 * @return the location
 	 */
-	public String getArea() {
-		return area;
+	public String getLocation() {
+		return this.location;
 	}
 
-	/**
-	 * @param area the area to set
-	 */
-	public void setArea(String area) {
-		this.area = area;
+	public void alert() {
+		String defaultMessage = "Mostion Detection Alert! {0}";
+    	String message = I18N.getString(Messages.MOTION_DETECTION_ALERT, defaultMessage, this.location);
+    	AlertHandler.getInstance().alert(message);
 	}
 
-	/**
-	 * @return the period
-	 */
-	public Period getPeriod() {
-		return period;
-	}
-
-	/**
-	 * @param period the period to set
-	 */
-	public void setPeriod(Period period) {
-		this.period = period;
-	}
-	
-	
 }

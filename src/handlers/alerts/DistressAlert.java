@@ -1,9 +1,7 @@
-/**
- * 
- */
 package handlers.alerts;
 
-import java.time.LocalDateTime;
+import i18n.I18N;
+import i18n.Messages;
 
 /**
  * @author G16
@@ -11,30 +9,14 @@ import java.time.LocalDateTime;
  */
 public class DistressAlert extends Alert {
 
-	private LocalDateTime timeStamp;
-	
-	/**
-	 * @param alertType
-	 */
-	public DistressAlert(AlertType alertType) {
-		super(alertType);
-		// TODO Auto-generated constructor stub
+	public DistressAlert() {
+		super(AlertType.DISTRESS);
 	}
 
-	/**
-	 * @return the timeStamp
-	 */
-	public LocalDateTime getTimeStamp() {
-		return timeStamp;
+	public void alert(String location) {
+		String defaultMessage = "Distress Alert!";
+    	String message = I18N.getString(Messages.DISTRESS_ALERT, defaultMessage);
+    	AlertHandler.getInstance().alert(message);
 	}
-
-	/**
-	 * @param timeStamp the timeStamp to set
-	 */
-	public void setTimeStamp(LocalDateTime timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
-	
 	
 }

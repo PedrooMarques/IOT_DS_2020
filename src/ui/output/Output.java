@@ -19,6 +19,10 @@ public class Output {
 		Sytem.out.println(message);
 	}
 
+	public void showWarning(String message) {
+		Sytem.err.println(message);
+	}
+
 	public void showAlert(String message) {
 		Sytem.err.println(message);
 	}

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package handlers.contacts;
 
 import java.util.ArrayList;
@@ -9,7 +6,7 @@ import java.util.ArrayList;
  * @author G16
  *
  */
-public class Contacts {
+public class ContactCatalog {
 
 	private ArrayList<Contact> contacts;
 	private Contact emergencyContact;
@@ -17,7 +14,7 @@ public class Contacts {
 	/**
 	 * 
 	 */
-	public Contacts() {
+	public ContactCatalog() {
 		this.contacts = new ArrayList<Contact>();
 	}
 
