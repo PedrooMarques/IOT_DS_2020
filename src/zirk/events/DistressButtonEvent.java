@@ -17,8 +17,8 @@ public class DistressButtonEvent extends DeviceEvent {
 	 * @param eventType
 	 * @param dateTime
 	 */
-	public DistressButtonEvent(LocalDateTime dateTime) {
-		super(EventType.DISTRESS_BUTTON, dateTime);
+	public DistressButtonEvent(LocalDateTime timeStamp) {
+		super(EventType.DISTRESS_BUTTON, timeStamp);
 	}
 
 	

@@ -24,7 +24,8 @@ public class Wearable extends DeviceSimulator {
 		System.out.println("Running Wearable Device Simulator");
         TimerTask task = new TimerTask() {
             public void run() {
-                DistressButtonEvent distressButtonEvent = new DistressButtonEvent();
+            	LocalDateTime timestamp = LocalDateTime.now();
+                DistressButtonEvent distressButtonEvent = new DistressButtonEvent(timestamp);
                 wearableZirk.bezirk.sendEvent(distressButtonEvent);
                 System.err.println("Published Distress Button event");
             }
