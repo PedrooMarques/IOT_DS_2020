@@ -26,10 +26,8 @@ public class PersistanceManager {
 		try {
 			fos = new FileOutputStream(this.file);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return fos;
 	}
 
@@ -38,10 +36,8 @@ public class PersistanceManager {
 		try {
 			fis = new FileInputStream(this.file);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return fis;
 	}
 

@@ -21,7 +21,7 @@ public class Contacts {
 		this.contacts = new ArrayList<Contact>();
 	}
 
-	public ArrayList<Contact> getContacts() {
+	public ArrayList<Contact> getContactList() {
 		return this.contacts;
 	}
 
