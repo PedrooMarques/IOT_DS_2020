@@ -3,11 +3,13 @@
  */
 package persistence;
 
-import com.bezirk.middleware.core.device.Device;
+import com.bezirk.middleware.Bezirk;
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
 
 import zirk.devices.MotionDetector;
+import zirk.devices.SmartBulb;
+import zirk.devices.Wearable;
 
 /**
  * @author G16
@@ -15,26 +17,29 @@ import zirk.devices.MotionDetector;
  */
 public class BasicModule extends AbstractModule {
 	
-	private MotionDetector asdasd;
+	private Bezirk bezirk;
+	
+	/**
+	 * @param bezirk
+	 */
+	public BasicModule(Bezirk bezirk) {
+		super();
+		this.bezirk = bezirk;
+	}
 
 	@Override
 	public void configure() {
 		
 		bind(MotionDetector.class)
 			.annotatedWith(Names.named("MotionDetector"))
-			.toInstance(new MotionDetector(null));
+			.toInstance(new MotionDetector(bezirk));
 		
-		bind(Device.class)
-		.annotatedWith(Names.named("SmartBulb"))
-		.to();
+		bind(SmartBulb.class)
+			.annotatedWith(Names.named("SmartBulb"))
+			.toInstance(new SmartBulb(bezirk));
 		
-		bind(Device.class)
-		.annotatedWith(Names.named("Wearable"))
-		.to();
+		bind(Wearable.class)
+			.annotatedWith(Names.named("Wearable"))
+			.toInstance(new Wearable(bezirk));
 	}
-	
-	setMotiondetector(MotionDetector motionDetector) {
-		
-	}
-
 }
