@@ -2,6 +2,7 @@ package devices;
 
 import java.time.LocalDateTime;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import zirk.events.MotionDetectionEvent;
 
