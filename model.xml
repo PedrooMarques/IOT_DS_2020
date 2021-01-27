@@ -14,8 +14,8 @@
 			<graphics key="collapsed" value="false"/>
 			<and abstract="true" hidden="true" mandatory="true" name="Connection">
 				<graphics key="collapsed" value="false"/>
-				<feature mandatory="true" name="WifiNetwork"/>
-				<feature mandatory="true" name="InternetConnection"/>
+				<feature abstract="true" mandatory="true" name="WifiNetwork"/>
+				<feature abstract="true" mandatory="true" name="InternetConnection"/>
 			</and>
 			<alt abstract="true" mandatory="true" name="Language">
 				<graphics key="collapsed" value="false"/>
@@ -32,19 +32,19 @@
 			</and>
 			<and abstract="true" hidden="true" mandatory="true" name="Input">
 				<graphics key="collapsed" value="false"/>
-				<feature mandatory="true" name="MouseAndKeyboard"/>
+				<feature abstract="true" mandatory="true" name="MouseAndKeyboard"/>
 			</and>
 			<and abstract="true" hidden="true" mandatory="true" name="Output">
-				<feature mandatory="true" name="Screen">
+				<feature abstract="true" mandatory="true" name="Screen">
 					<graphics key="collapsed" value="false"/>
 				</feature>
 			</and>
-			<and mandatory="true" name="ContactList">
+			<and abstract="true" mandatory="true" name="ContactList">
 				<graphics key="collapsed" value="false"/>
 				<feature name="EmergencyContact"/>
 			</and>
-			<feature hidden="true" mandatory="true" name="Warnings"/>
-			<or abstract="true" name="Alerts">
+			<feature abstract="true" hidden="true" mandatory="true" name="Warnings"/>
+			<or name="Alerts">
 				<graphics key="collapsed" value="false"/>
 				<feature name="MotionDetection"/>
 				<feature name="Inactivity"/>

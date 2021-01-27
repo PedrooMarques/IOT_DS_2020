@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="EmergencyContact.aj|TextToSpeech.aj|DistressButton.aj|Portuguese.aj|VoiceCommands.aj|MotionDetector.aj|WearableDevices.aj|Inactivity.aj|ActivityMonitor.aj|MotionDetection.aj|Alerts.aj|Emergency.aj" kind="src" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-15">
 		<attributes>
-			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -38,7 +42,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/slf4j-api-1.7.21.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/starter-3.0.2-3.jar"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

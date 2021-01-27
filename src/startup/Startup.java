@@ -17,7 +17,7 @@ public class Startup {
 
 	private static final String zirkName = "Main Application";
 
-	public static void main(String[] args) {
+	public Startup() {
 		BezirkMiddleware.initialize();
         Bezirk bezirk = BezirkMiddleware.registerZirk(zirkName);
         
@@ -39,7 +39,7 @@ public class Startup {
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.SET_EMERGENCY_CONTACT, "Set Emergency Contact"),
+        		I18N.getString(Messages.LIST_CONTACTS, "List Contacts"),
         		new Runnable() {
         			@Override
         			public void run() {
@@ -63,31 +63,7 @@ public class Startup {
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.ADD_MOTION_DETECTION_ALERT, "Add Motion Detection Alert"),
-        		new Runnable() {
-        			@Override
-        			public void run() {
-        				
-        			}
-        		}));
-        choices.add(new MenuChoice(
-        		I18N.getString(Messages.REMOVE_MOTION_DETECTION_ALERT, "Remove Motion Detection Alert"),
-        		new Runnable() {
-        			@Override
-        			public void run() {
-        				
-        			}
-        		}));
-        choices.add(new MenuChoice(
-        		I18N.getString(Messages.ADD_INACTIVITY_ALERT, "Add Inactivity Alert"),
-        		new Runnable() {
-        			@Override
-        			public void run() {
-        				
-        			}
-        		}));
-        choices.add(new MenuChoice(
-        		I18N.getString(Messages.REMOVE_INACTIVITY_ALERT, "Remove Inactivity Alert"),
+        		I18N.getString(Messages.LIST_WARNINGS, "List Warnings"),
         		new Runnable() {
         			@Override
         			public void run() {
