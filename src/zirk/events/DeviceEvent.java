@@ -10,10 +10,10 @@ public abstract class DeviceEvent extends Event {
 	protected final EventType eventType;
 	protected final LocalDateTime timestamp;
 
-	public DeviceEvent(EventType eventType, LocalDateTime dateTime) {
+	public DeviceEvent(EventType eventType) {
 		super();
 		this.eventType = eventType;
-		this.timestamp = dateTime;
+		this.timestamp = LocalDateTime.now();
 	}
 
 	public LocalDateTime getTimestamp() {
@@ -26,7 +26,5 @@ public abstract class DeviceEvent extends Event {
 	public EventType getEventType() {
 		return eventType;
 	}
-	
-	
 
 }

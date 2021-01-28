@@ -3,8 +3,6 @@
  */
 package zirk.events;
 
-import java.time.LocalDateTime;
-
 /**
  * @author G16
  *
@@ -17,10 +15,8 @@ public class DistressButtonEvent extends DeviceEvent {
 	 * @param eventType
 	 * @param dateTime
 	 */
-	public DistressButtonEvent(LocalDateTime timeStamp) {
-		super(EventType.DISTRESS_BUTTON, timeStamp);
+	public DistressButtonEvent() {
+		super(EventType.DISTRESS_BUTTON);
 	}
-
-	
 
 }

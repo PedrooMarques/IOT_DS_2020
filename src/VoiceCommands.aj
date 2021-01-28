@@ -4,6 +4,8 @@ import handlers.contacts.ContactHandler;
 import helpers.MenuChoice;
 import i18n.I18N;
 import i18n.Messages;
+import ui.input.Input;
+import ui.output.Output;
 
 public aspect VoiceCommands {
 
@@ -19,8 +21,8 @@ public aspect VoiceCommands {
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
-				System.out.println("**Executing Voice Command**");
-				System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
+				System.err.println("**Executing Voice Command**");
+				Output.getInstance().showMessage(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().list().size())));
 			}
 		};
 		MenuChoice choice = new MenuChoice(message, task);

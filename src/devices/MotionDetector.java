@@ -1,6 +1,5 @@
 package devices;
 
-import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -18,8 +17,7 @@ public class MotionDetector extends DeviceSimulator {
         TimerTask task = new TimerTask() {
             public void run() {
             	String detectionArea = "Area";
-                LocalDateTime timestamp = LocalDateTime.now();
-                MotionDetectionEvent motionDetectionEvent = new MotionDetectionEvent(detectionArea, timestamp);
+                MotionDetectionEvent motionDetectionEvent = new MotionDetectionEvent(detectionArea);
                 motionDetectorZirk.bezirk.sendEvent(motionDetectionEvent);
                 System.err.println("Published Motion Detection event");
             }

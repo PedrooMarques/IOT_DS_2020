@@ -1,7 +1,10 @@
 package handlers.alerts;
 
 import handlers.contacts.ContactHandler;
+import i18n.I18N;
+import i18n.Messages;
 import ui.output.Output;
+import zirk.events.DistressButtonEvent;
 import zirk.events.MotionDetectionEvent;
 
 public class AlertHandler {
@@ -30,14 +33,19 @@ public class AlertHandler {
 	}
 
 	public void handleMotionDetection(MotionDetectionEvent event) {
-		for (Alert alert: this.alerts.getAlertList()) {
+		for (Alert alert: this.alerts.list()) {
 			if (alert instanceof MotionDetectionAlert) {
-				((MotionDetectionAlert) alert).alert();
+				((MotionDetectionAlert)alert).alert();
 			}
 			if (alert instanceof InactivityAlert) {
-				((InactivityAlert) alert).cancel();
+				((InactivityAlert)alert).cancel();
 			}
 		}
+	}
+
+	public void handleEmergency(DistressButtonEvent event) {
+		String message = I18N.getString(Messages.DISTRESS_BUTTON_DETECTED, "Distress Button pressed!");
+		this.alert(message);
 	}
 
 }

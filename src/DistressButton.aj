@@ -14,9 +14,8 @@ public aspect DistressButton {
 
 	void around(DeviceEvent event, ZirkEndPoint sender): distressButtonEventDetected(event, sender) {
         if (event instanceof DistressButtonEvent) {
-        	String defaultMessage = "Distress Button pressed!";
-        	String message = I18N.getString(Messages.DISTRESS_BUTTON_DETECTED, defaultMessage);
-        	AlertHandler.getInstance().alert(message);
+        	System.err.println("Received Distress Button event from Wearable");
+        	AlertHandler.getInstance().handleEmergency((DistressButtonEvent)event);
         }
 	}
 

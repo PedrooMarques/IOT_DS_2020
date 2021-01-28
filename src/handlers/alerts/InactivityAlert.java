@@ -12,32 +12,32 @@ import i18n.Messages;
  */
 public class InactivityAlert extends Alert {
 	
-	private final int duration;
+	private final int durationMinutes;
 	private final Timer timer;
 
 	/**
 	 * @param alertType
 	 */
-	public InactivityAlert(int duration) {
+	public InactivityAlert(int durationMinutes) {
 		super(AlertType.INACTIVITY);
-		this.duration = duration;
+		this.durationMinutes = durationMinutes;
 		this.timer = new Timer();
 		timer.schedule(new TimerTask() {
             @Override
             public void run() {
             	String defaultMessage = "Inactivity Alert! {0} minutes";
-            	int minutes = duration / 1000 / 60;
+            	int minutes = durationMinutes / 1000 / 60;
             	String message = I18N.getString(Messages.INACTIVITY_ALERT, defaultMessage, Integer.toString(minutes));
             	AlertHandler.getInstance().alert(message);
             }
-        }, this.duration);
+        }, this.durationMinutes);
 	}
 
 	/**
-	 * @return the duration
+	 * @return the duration in minutes
 	 */
-	public int getDuration() {
-		return duration;
+	public int getDurationMinutes() {
+		return durationMinutes;
 	}
 
 	public void cancel() {

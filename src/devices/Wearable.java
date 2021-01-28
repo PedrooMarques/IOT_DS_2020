@@ -1,6 +1,5 @@
 package devices;
 
-import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -20,12 +19,10 @@ public class Wearable extends DeviceSimulator {
 	
 	public static void main(String[] args) {
 		Wearable wearableZirk = new Wearable();
-		SmartBulb smartBulbZirk = new SmartBulb();
 		System.out.println("Running Wearable Device Simulator");
         TimerTask task = new TimerTask() {
             public void run() {
-            	LocalDateTime timestamp = LocalDateTime.now();
-                DistressButtonEvent distressButtonEvent = new DistressButtonEvent(timestamp);
+                DistressButtonEvent distressButtonEvent = new DistressButtonEvent();
                 wearableZirk.bezirk.sendEvent(distressButtonEvent);
                 System.err.println("Published Distress Button event");
             }
@@ -41,7 +38,7 @@ public class Wearable extends DeviceSimulator {
             }
         };
         lightSignalEvents.setEventReceiver(eventReceiver);
-        smartBulbZirk.bezirk.subscribe(lightSignalEvents);
+        wearableZirk.bezirk.subscribe(lightSignalEvents);
         System.out.println("Subscribed to Wearable Device events");
 	}
 

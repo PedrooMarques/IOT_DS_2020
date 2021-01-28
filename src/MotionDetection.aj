@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
+import handlers.alerts.AlertHandler;
+import handlers.alerts.MotionDetectionAlert;
 import ui.input.Input;
+import ui.output.Output;
 import helpers.MenuChoice;
 import i18n.I18N;
 import i18n.Messages;
@@ -16,19 +19,13 @@ public aspect MotionDetection {
 			newChoices.add(c);
 		}
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.ADD_MOTION_DETECTION_ALERT, "Add Motion Detection Alert"), 
+				I18N.getString(Messages.ADD_MOTION_DETECTION_ALERT, "Add Motion Detection alert"), 
 				new Runnable() {
 					@Override
 					public void run() {
-						// System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
-					}
-				}));
-		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.REMOVE_MOTION_DETECTION_ALERT, "Remove Motion Detection Alert"), 
-				new Runnable() {
-					@Override
-					public void run() {
-						// System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
+						String location = "Cozinha";
+						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_MOTION_DETECTION_ALERT, "Adding Motion Detection alert: {0}", location));
+						AlertHandler.getInstance().getAlerts().add(new MotionDetectionAlert(location));
 					}
 				}));
 		proceed(newChoices);

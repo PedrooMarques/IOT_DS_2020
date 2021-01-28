@@ -30,22 +30,28 @@ public class Warning {
 		this.endDate = endDate;
 		this.frequency = frequency;
 		this.frequencyNumber = frequencyNumber;
-		Warning w = this;
-		TimerTask start = new TimerTask() {
-			public void run() {
-				w.start();
-			}
-		};
-		new Timer().schedule(start, Duration.between(startDate, LocalDateTime.now()).toMillis());
-		TimerTask stop = new TimerTask() {
-			public void run() {
-				w.timer.cancel();
-			}
-		};
-		new Timer().schedule(stop, Duration.between(endDate, LocalDateTime.now()).toMillis());
+		if (endDate.isAfter(LocalDateTime.now())) {
+			Warning w = this;
+			TimerTask start = new TimerTask() {
+				public void run() {
+					w.start();
+				}
+			};
+			new Timer().schedule(start, startDate.isAfter(LocalDateTime.now()) ? Duration.between(startDate, LocalDateTime.now()).toMillis() : 0);
+			TimerTask stop = new TimerTask() {
+				public void run() {
+					w.timer.cancel();
+				}
+			};
+			new Timer().schedule(stop, Duration.between(endDate, LocalDateTime.now()).toMillis());
+		}
 	}
 
-	public String getWarningName() {
+	public Warning(String name, LocalDateTime startDate, LocalDateTime endDate, Frequency frequency) {
+		this(name, startDate, endDate, frequency, 1);
+	}
+
+	public String getName() {
 		return this.name;
 	}
 
@@ -66,10 +72,11 @@ public class Warning {
 	}
 
 	private void start() {
+		String defaultMessage = "Warning! {0}";
+		String message = I18N.getString(Messages.WARNING, defaultMessage, name);
+		WarningHandler.getInstance().warn(message);
 		TimerTask task = new TimerTask() {
 			public void run() {
-				String defaultMessage = "Warning! {0}";
-				String message = I18N.getString(Messages.WARNING, defaultMessage, name);
 				WarningHandler.getInstance().warn(message);
 			}
 		};

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package persistence;
+package helpers;
 
 import com.bezirk.middleware.Bezirk;
 import com.google.inject.AbstractModule;
@@ -29,17 +29,15 @@ public class BasicModule extends AbstractModule {
 
 	@Override
 	public void configure() {
-		
 		bind(MotionDetector.class)
 			.annotatedWith(Names.named("MotionDetector"))
 			.toInstance(new MotionDetector(bezirk));
-		
 		bind(SmartBulb.class)
 			.annotatedWith(Names.named("SmartBulb"))
 			.toInstance(new SmartBulb(bezirk));
-		
 		bind(Wearable.class)
 			.annotatedWith(Names.named("Wearable"))
 			.toInstance(new Wearable(bezirk));
 	}
+
 }

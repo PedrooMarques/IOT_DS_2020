@@ -27,7 +27,7 @@ public class Contact {
 	}
 
 	protected void sendSMS(String message) {
-		System.out.println("**SMS Sent**");
+		System.err.println("**SMS Sent**");
 	}
 
 }

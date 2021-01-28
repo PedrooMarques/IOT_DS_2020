@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
+import handlers.alerts.AlertHandler;
+import handlers.alerts.InactivityAlert;
 import ui.input.Input;
+import ui.output.Output;
 import helpers.MenuChoice;
 import i18n.I18N;
 import i18n.Messages;
@@ -16,19 +19,13 @@ public aspect Inactivity {
 			newChoices.add(c);
 		}
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.ADD_INACTIVITY_ALERT, "Add Inactivity Alert"), 
+				I18N.getString(Messages.ADD_INACTIVITY_ALERT, "Add Inactivity alert"), 
 				new Runnable() {
 					@Override
 					public void run() {
-						// System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
-					}
-				}));
-		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.REMOVE_INACTIVITY_ALERT, "Remove Inactivity Alert"), 
-				new Runnable() {
-					@Override
-					public void run() {
-						// System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
+						int durationMinutes = 60;
+						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_INACTIVITY_ALERT, "Adding Inactivity alert: {0} minutes", Integer.toString(durationMinutes)));
+						AlertHandler.getInstance().getAlerts().add(new InactivityAlert(durationMinutes));
 					}
 				}));
 		proceed(newChoices);

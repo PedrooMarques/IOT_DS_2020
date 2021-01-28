@@ -1,7 +1,5 @@
 package zirk.events;
 
-import java.time.LocalDateTime;
-
 /**
  * @author G16
  *
@@ -13,11 +11,9 @@ public class MotionDetectionEvent extends DeviceEvent {
 
 	/**
 	 * @param detectionArea
-	 * @param detected
-	 * @param timestamp
 	 */
-	public MotionDetectionEvent(String detectionArea, LocalDateTime timestamp) {
-		super(EventType.MOTION_DETECTION, timestamp);
+	public MotionDetectionEvent(String detectionArea) {
+		super(EventType.MOTION_DETECTION);
 		this.detectionArea = detectionArea;
 	}
 
@@ -27,7 +23,5 @@ public class MotionDetectionEvent extends DeviceEvent {
 	public String getDetectionArea() {
 		return detectionArea;
 	}
-    
-    //TODO toString
 
 }

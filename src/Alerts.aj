@@ -1,6 +1,12 @@
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import handlers.alerts.Alert;
+import handlers.alerts.AlertHandler;
+import handlers.alerts.InactivityAlert;
+import handlers.alerts.MotionDetectionAlert;
 import ui.input.Input;
+import ui.output.Output;
 import helpers.MenuChoice;
 import i18n.I18N;
 import i18n.Messages;
@@ -15,15 +21,34 @@ public aspect Alerts {
 		for (MenuChoice c: choices) {
 			newChoices.add(c);
 		}
-		String message = I18N.getString(Messages.LIST_ALERTS, "List Alerts");
-		Runnable task = new Runnable() {
-			@Override
-			public void run() {
-				// System.out.println(I18N.getString(Messages.CONTACT_LIST_SIZE, "Number of contacts: {0}", Integer.toString(ContactHandler.getInstance().getContacts().getContactList().size())));
-			}
-		};
-		MenuChoice choice = new MenuChoice(message, task);
-		newChoices.add(choice);
+		newChoices.add(new MenuChoice(
+				I18N.getString(Messages.LIST_ALERTS, "List Alerts"), 
+				new Runnable() {
+					@Override
+					public void run() {
+						ArrayList<Alert> alerts = AlertHandler.getInstance().getAlerts().list();
+        				for (int i = 0; i < alerts.size(); i++) {
+        					if (alerts.get(i) instanceof MotionDetectionAlert) {
+        						MotionDetectionAlert alert = (MotionDetectionAlert)alerts.get(i);
+        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_MOTION_DETECTION_ALERT, "Motion Detection alert {0}: {1}", Integer.toString(i + 1), alert.getLocation()));
+        					}
+        					if (alerts.get(i) instanceof InactivityAlert) {
+        						InactivityAlert alert = (InactivityAlert)alerts.get(i);
+        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_INACTIVITY_ALERT, "Inactivity alert {0}: {1}", Integer.toString(i + 1), Integer.toString(alert.getDurationMinutes())));
+        					}
+        				}
+					}
+				}));
+		newChoices.add(new MenuChoice(
+				I18N.getString(Messages.REMOVE_ALERT, "Remove Alert"), 
+				new Runnable() {
+					@Override
+					public void run() {
+						Alert alert = AlertHandler.getInstance().getAlerts().list().get(0);
+						Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_ALERT, "Removing alert: {0}", alert.getAlertType().toString()));
+						AlertHandler.getInstance().getAlerts().remove(alert);
+					}
+				}));
 		proceed(newChoices);
 	}
 

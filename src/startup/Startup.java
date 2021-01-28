@@ -1,5 +1,8 @@
 package startup;
 
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import com.bezirk.middleware.Bezirk;
@@ -7,19 +10,25 @@ import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
-import persistence.BasicModule;
+import handlers.contacts.Contact;
+import handlers.contacts.ContactHandler;
+import handlers.warnings.Frequency;
+import handlers.warnings.Warning;
+import handlers.warnings.WarningHandler;
 import ui.input.Input;
+import ui.output.Output;
+import helpers.BasicModule;
 import helpers.MenuChoice;
 import i18n.I18N;
 import i18n.Messages;
 
 public class Startup {
 
-	private static final String zirkName = "Main Application";
+	private static final String ZIRK_NAME = "Main Application";
 
 	public Startup() {
 		BezirkMiddleware.initialize();
-        Bezirk bezirk = BezirkMiddleware.registerZirk(zirkName);
+        Bezirk bezirk = BezirkMiddleware.registerZirk(ZIRK_NAME);
         
         ArrayList<MenuChoice> choices = new ArrayList<MenuChoice>();
         choices.add(new MenuChoice(
@@ -27,7 +36,10 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				String name = "ABC";
+        				String phoneNumber = "912345678";
+        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_CONTACT, "Adding contact: {0} {1}", name, phoneNumber));
+        				ContactHandler.getInstance().getContacts().add(new Contact(name, phoneNumber));
         			}
         		}));
         choices.add(new MenuChoice(
@@ -35,7 +47,9 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				Contact contact = ContactHandler.getInstance().getContacts().list().get(0);
+        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_CONTACT, "Removing contact: {0} {1}", contact.getName(), contact.getPhoneNumber()));
+        				ContactHandler.getInstance().getContacts().remove(contact);
         			}
         		}));
         choices.add(new MenuChoice(
@@ -43,7 +57,10 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				ArrayList<Contact> contacts = ContactHandler.getInstance().getContacts().list();
+        				for (int i = 0; i < contacts.size(); i++) {
+        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_CONTACT, "Contact {0}: {1} {2}", Integer.toString(i + 1), contacts.get(i).getName(), contacts.get(i).getPhoneNumber()));
+        				}
         			}
         		}));
         choices.add(new MenuChoice(
@@ -51,7 +68,13 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				String name = "Warning1";
+        				LocalDateTime startDate = LocalDateTime.of(2021, Month.JANUARY, 0, 0, 0, 0);
+        				LocalDateTime endDate = LocalDateTime.of(2021, Month.JANUARY, 0, 0, 0, 0);
+        				Frequency frequency = Frequency.MINUTE;
+        				int frequencyNumber = 1;
+        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_WARNING, "Adding warning: {0} {1} {2} {3} {4}", name, startDate.format(DateTimeFormatter.ISO_DATE_TIME), endDate.format(DateTimeFormatter.ISO_DATE_TIME), frequency.toString(), Integer.toString(frequencyNumber)));
+        				WarningHandler.getInstance().getWarnings().add(new Warning(name, startDate, endDate, frequency, frequencyNumber));
         			}
         		}));
         choices.add(new MenuChoice(
@@ -59,7 +82,9 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				Warning warning = WarningHandler.getInstance().getWarnings().list().get(0);
+        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_WARNING, "Removing warning: {0} {1} {2} {3} {4}", warning.getName(), warning.getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getFrequency().toString(), Integer.toString(warning.getFrequencyNumber())));
+        				WarningHandler.getInstance().getWarnings().remove(warning);
         			}
         		}));
         choices.add(new MenuChoice(
@@ -67,7 +92,10 @@ public class Startup {
         		new Runnable() {
         			@Override
         			public void run() {
-        				
+        				ArrayList<Warning> warnings = WarningHandler.getInstance().getWarnings().list();
+        				for (int i = 0; i < warnings.size(); i++) {
+        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_WARNING, "Warning {0}: {1} {2} {3} {4} {5}", Integer.toString(i + 1), warnings.get(i).getName(), warnings.get(i).getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getFrequency().toString(), Integer.toString(warnings.get(i).getFrequencyNumber())));
+        				}
         			}
         		}));
         Input.getInstance().renderMenu(choices);

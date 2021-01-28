@@ -11,8 +11,9 @@ public class MotionDetectionAlert extends Alert {
 
 	private String location;
 
-	public MotionDetectionAlert() {
+	public MotionDetectionAlert(String location) {
 		super(AlertType.MOTION_DETECTION);
+		this.location = location;
 	}
 
 	/**
