@@ -32,39 +32,39 @@ public class Startup {
         
         ArrayList<MenuChoice> choices = new ArrayList<MenuChoice>();
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.ADD_CONTACT, "Add Contact"),
+        		I18N.getString(Messages.ADD_CONTACT),
         		new Runnable() {
         			@Override
         			public void run() {
         				String name = "ABC";
         				String phoneNumber = "912345678";
-        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_CONTACT, "Adding contact: {0} {1}", name, phoneNumber));
+        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_CONTACT, name, phoneNumber));
         				ContactHandler.getInstance().getContacts().add(new Contact(name, phoneNumber));
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.REMOVE_CONTACT, "Remove Contact"),
+        		I18N.getString(Messages.REMOVE_CONTACT),
         		new Runnable() {
         			@Override
         			public void run() {
         				Contact contact = ContactHandler.getInstance().getContacts().list().get(0);
-        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_CONTACT, "Removing contact: {0} {1}", contact.getName(), contact.getPhoneNumber()));
+        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_CONTACT, contact.getName(), contact.getPhoneNumber()));
         				ContactHandler.getInstance().getContacts().remove(contact);
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.LIST_CONTACTS, "List Contacts"),
+        		I18N.getString(Messages.LIST_CONTACTS),
         		new Runnable() {
         			@Override
         			public void run() {
         				ArrayList<Contact> contacts = ContactHandler.getInstance().getContacts().list();
         				for (int i = 0; i < contacts.size(); i++) {
-        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_CONTACT, "Contact {0}: {1} {2}", Integer.toString(i + 1), contacts.get(i).getName(), contacts.get(i).getPhoneNumber()));
+        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_CONTACT, Integer.toString(i + 1), contacts.get(i).getName(), contacts.get(i).getPhoneNumber()));
         				}
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.ADD_WARNING, "Add Warning"),
+        		I18N.getString(Messages.ADD_WARNING),
         		new Runnable() {
         			@Override
         			public void run() {
@@ -73,28 +73,28 @@ public class Startup {
         				LocalDateTime endDate = LocalDateTime.of(2021, Month.JANUARY, 0, 0, 0, 0);
         				Frequency frequency = Frequency.MINUTE;
         				int frequencyNumber = 1;
-        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_WARNING, "Adding warning: {0} {1} {2} {3} {4}", name, startDate.format(DateTimeFormatter.ISO_DATE_TIME), endDate.format(DateTimeFormatter.ISO_DATE_TIME), frequency.toString(), Integer.toString(frequencyNumber)));
+        				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_WARNING, name, startDate.format(DateTimeFormatter.ISO_DATE_TIME), endDate.format(DateTimeFormatter.ISO_DATE_TIME), frequency.toString(), Integer.toString(frequencyNumber)));
         				WarningHandler.getInstance().getWarnings().add(new Warning(name, startDate, endDate, frequency, frequencyNumber));
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.REMOVE_WARNING, "Remove Warning"),
+        		I18N.getString(Messages.REMOVE_WARNING),
         		new Runnable() {
         			@Override
         			public void run() {
         				Warning warning = WarningHandler.getInstance().getWarnings().list().get(0);
-        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_WARNING, "Removing warning: {0} {1} {2} {3} {4}", warning.getName(), warning.getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getFrequency().toString(), Integer.toString(warning.getFrequencyNumber())));
+        				Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_WARNING, warning.getName(), warning.getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warning.getFrequency().toString(), Integer.toString(warning.getFrequencyNumber())));
         				WarningHandler.getInstance().getWarnings().remove(warning);
         			}
         		}));
         choices.add(new MenuChoice(
-        		I18N.getString(Messages.LIST_WARNINGS, "List Warnings"),
+        		I18N.getString(Messages.LIST_WARNINGS),
         		new Runnable() {
         			@Override
         			public void run() {
         				ArrayList<Warning> warnings = WarningHandler.getInstance().getWarnings().list();
         				for (int i = 0; i < warnings.size(); i++) {
-        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_WARNING, "Warning {0}: {1} {2} {3} {4} {5}", Integer.toString(i + 1), warnings.get(i).getName(), warnings.get(i).getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getFrequency().toString(), Integer.toString(warnings.get(i).getFrequencyNumber())));
+        					Output.getInstance().showMessage(I18N.getString(Messages.SHOW_WARNING, Integer.toString(i + 1), warnings.get(i).getName(), warnings.get(i).getStartDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getEndDate().format(DateTimeFormatter.ISO_DATE_TIME), warnings.get(i).getFrequency().toString(), Integer.toString(warnings.get(i).getFrequencyNumber())));
         				}
         			}
         		}));

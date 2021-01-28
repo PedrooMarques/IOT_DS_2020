@@ -31,16 +31,16 @@ public class Input {
 			}
 			System.out.println((choices.size() + 1) + ". Exit");
 			System.out.println("-------------");
-			System.out.println(I18N.getString(Messages.CHOOSE_OPTION, "Please choose an option"));
+			System.out.println(I18N.getString(Messages.CHOOSE_OPTION));
 			option = scanner.nextInt();
 			if (option < choices.size() + 1) {
-				choices.get(option).run();
+				choices.get(option - 1).run();
 				continue;
 			}
 			if (option == choices.size() + 1) {
 				System.exit(0);
 			}
-			System.out.println(I18N.getString(Messages.CHOICE_NOT_FOUND, "Please enter a valid option"));
+			System.out.println(I18N.getString(Messages.CHOICE_NOT_FOUND));
 		}
 		scanner.close();
 	}

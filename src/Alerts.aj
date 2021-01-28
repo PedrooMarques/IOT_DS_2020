@@ -22,7 +22,7 @@ public aspect Alerts {
 			newChoices.add(c);
 		}
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.LIST_ALERTS, "List Alerts"), 
+				I18N.getString(Messages.LIST_ALERTS), 
 				new Runnable() {
 					@Override
 					public void run() {
@@ -30,22 +30,22 @@ public aspect Alerts {
         				for (int i = 0; i < alerts.size(); i++) {
         					if (alerts.get(i) instanceof MotionDetectionAlert) {
         						MotionDetectionAlert alert = (MotionDetectionAlert)alerts.get(i);
-        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_MOTION_DETECTION_ALERT, "Motion Detection alert {0}: {1}", Integer.toString(i + 1), alert.getLocation()));
+        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_MOTION_DETECTION_ALERT, Integer.toString(i + 1), alert.getLocation()));
         					}
         					if (alerts.get(i) instanceof InactivityAlert) {
         						InactivityAlert alert = (InactivityAlert)alerts.get(i);
-        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_INACTIVITY_ALERT, "Inactivity alert {0}: {1}", Integer.toString(i + 1), Integer.toString(alert.getDurationMinutes())));
+        						Output.getInstance().showMessage(I18N.getString(Messages.SHOW_INACTIVITY_ALERT, Integer.toString(i + 1), Integer.toString(alert.getDurationMinutes())));
         					}
         				}
 					}
 				}));
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.REMOVE_ALERT, "Remove Alert"), 
+				I18N.getString(Messages.REMOVE_ALERT), 
 				new Runnable() {
 					@Override
 					public void run() {
 						Alert alert = AlertHandler.getInstance().getAlerts().list().get(0);
-						Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_ALERT, "Removing alert: {0}", alert.getAlertType().toString()));
+						Output.getInstance().showMessage(I18N.getString(Messages.REMOVING_ALERT, alert.getAlertType().toString()));
 						AlertHandler.getInstance().getAlerts().remove(alert);
 					}
 				}));

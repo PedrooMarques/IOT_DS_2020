@@ -19,12 +19,12 @@ public aspect Inactivity {
 			newChoices.add(c);
 		}
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.ADD_INACTIVITY_ALERT, "Add Inactivity alert"), 
+				I18N.getString(Messages.ADD_INACTIVITY_ALERT), 
 				new Runnable() {
 					@Override
 					public void run() {
 						int durationMinutes = 60;
-						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_INACTIVITY_ALERT, "Adding Inactivity alert: {0} minutes", Integer.toString(durationMinutes)));
+						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_INACTIVITY_ALERT, Integer.toString(durationMinutes)));
 						AlertHandler.getInstance().getAlerts().add(new InactivityAlert(durationMinutes));
 					}
 				}));

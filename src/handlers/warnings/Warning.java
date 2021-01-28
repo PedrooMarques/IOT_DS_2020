@@ -72,8 +72,7 @@ public class Warning {
 	}
 
 	private void start() {
-		String defaultMessage = "Warning! {0}";
-		String message = I18N.getString(Messages.WARNING, defaultMessage, name);
+		String message = I18N.getString(Messages.WARNING, name);
 		WarningHandler.getInstance().warn(message);
 		TimerTask task = new TimerTask() {
 			public void run() {

@@ -25,9 +25,8 @@ public class InactivityAlert extends Alert {
 		timer.schedule(new TimerTask() {
             @Override
             public void run() {
-            	String defaultMessage = "Inactivity Alert! {0} minutes";
             	int minutes = durationMinutes / 1000 / 60;
-            	String message = I18N.getString(Messages.INACTIVITY_ALERT, defaultMessage, Integer.toString(minutes));
+            	String message = I18N.getString(Messages.INACTIVITY_ALERT, Integer.toString(minutes));
             	AlertHandler.getInstance().alert(message);
             }
         }, this.durationMinutes);

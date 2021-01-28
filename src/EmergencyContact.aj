@@ -18,13 +18,13 @@ public aspect EmergencyContact {
 		for (MenuChoice c: choices) {
 			newChoices.add(c);
 		}
-		String message = I18N.getString(Messages.SET_EMERGENCY_CONTACT, "Set Emergency Contact");
+		String message = I18N.getString(Messages.SET_EMERGENCY_CONTACT);
 		Runnable task = new Runnable() {
 			@Override
 			public void run() {
 				String name = "ABC";
 				String phoneNumber = "912345678";
-				Output.getInstance().showMessage(I18N.getString(Messages.SETTING_EMERGENCY_CONTACT, "Setting Emergency Contact: {0} {1}", name, phoneNumber));
+				Output.getInstance().showMessage(I18N.getString(Messages.SETTING_EMERGENCY_CONTACT, name, phoneNumber));
 				ContactHandler.getInstance().getContacts().setEmergencyContact(new Contact(name, phoneNumber));
 			}
 		};

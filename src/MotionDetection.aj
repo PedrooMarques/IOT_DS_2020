@@ -19,12 +19,12 @@ public aspect MotionDetection {
 			newChoices.add(c);
 		}
 		newChoices.add(new MenuChoice(
-				I18N.getString(Messages.ADD_MOTION_DETECTION_ALERT, "Add Motion Detection alert"), 
+				I18N.getString(Messages.ADD_MOTION_DETECTION_ALERT), 
 				new Runnable() {
 					@Override
 					public void run() {
 						String location = "Cozinha";
-						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_MOTION_DETECTION_ALERT, "Adding Motion Detection alert: {0}", location));
+						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_MOTION_DETECTION_ALERT, location));
 						AlertHandler.getInstance().getAlerts().add(new MotionDetectionAlert(location));
 					}
 				}));

@@ -14,8 +14,7 @@ public class DistressAlert extends Alert {
 	}
 
 	public void alert(String location) {
-		String defaultMessage = "Distress Alert!";
-    	String message = I18N.getString(Messages.DISTRESS_ALERT, defaultMessage);
+    	String message = I18N.getString(Messages.DISTRESS_ALERT);
     	AlertHandler.getInstance().alert(message);
 	}
 	

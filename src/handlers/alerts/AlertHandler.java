@@ -44,7 +44,7 @@ public class AlertHandler {
 	}
 
 	public void handleEmergency(DistressButtonEvent event) {
-		String message = I18N.getString(Messages.DISTRESS_BUTTON_DETECTED, "Distress Button pressed!");
+		String message = I18N.getString(Messages.DISTRESS_BUTTON_DETECTED);
 		this.alert(message);
 	}
 
