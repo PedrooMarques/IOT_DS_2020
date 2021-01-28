@@ -1,5 +1,6 @@
 package handlers.warnings;
 
+import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Timer;
@@ -8,8 +9,9 @@ import java.util.TimerTask;
 import i18n.I18N;
 import i18n.Messages;
 
-public class Warning {
+public class Warning implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private LocalDateTime startDate;
 	private LocalDateTime endDate;

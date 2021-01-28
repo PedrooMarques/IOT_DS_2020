@@ -1,6 +1,7 @@
 package handlers.contacts;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import handlers.ICatalog;
@@ -35,6 +36,8 @@ public class ContactCatalog implements ICatalog<Contact> {
 		this.contacts.add(contact);
 		try {
 			ContactPersistence persistence = new ContactPersistence(this.contacts, this.emergencyContact);
+			System.out.println(this.contacts);
+			System.out.println(this.emergencyContact);
 			this.persistenceManager.write(persistence);
 		} catch (IOException e) {}
 		return contact;
@@ -57,7 +60,9 @@ public class ContactCatalog implements ICatalog<Contact> {
 		this.emergencyContact = emergencyContact;
 	}
 
-	private class ContactPersistence {
+	private class ContactPersistence implements Serializable {
+
+		private static final long serialVersionUID = 1L;
 		public ArrayList<Contact> contacts;
 		public Contact emergencyContact;
 		
@@ -65,6 +70,7 @@ public class ContactCatalog implements ICatalog<Contact> {
 			this.contacts = contacts;
 			this.emergencyContact = emergencyContact;
 		}
+
 	}
 
 }

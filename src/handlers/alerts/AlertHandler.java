@@ -9,7 +9,7 @@ import zirk.events.MotionDetectionEvent;
 
 public class AlertHandler {
 
-	private static AlertHandler instance;
+	private static final AlertHandler INSTANCE = new AlertHandler();
 	private AlertCatalog alerts;
 
 	private AlertHandler() {
@@ -17,10 +17,7 @@ public class AlertHandler {
 	}
 
 	public static AlertHandler getInstance() {
-		if (instance == null) {
-			instance = new AlertHandler();
-		}
-		return instance;
+		return INSTANCE;
 	}
 	
 	public AlertCatalog getAlerts() {

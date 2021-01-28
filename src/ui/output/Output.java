@@ -2,17 +2,14 @@ package ui.output;
 
 public class Output {
 
-	private static Output instance;
+	private static final Output INSTANCE = new Output();
 
 	private Output() {
-		
+
 	}
 
 	public static Output getInstance() {
-		if (instance == null) {
-			instance = new Output();
-		}
-		return instance;
+		return INSTANCE;
 	}
 
 	public void showMessage(String message) {

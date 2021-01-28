@@ -29,6 +29,9 @@ public class Startup {
 	public Startup() {
 		BezirkMiddleware.initialize();
         Bezirk bezirk = BezirkMiddleware.registerZirk(ZIRK_NAME);
+        BasicModule basicModule = new BasicModule(bezirk);
+		@SuppressWarnings("unused")
+		Injector injector = Guice.createInjector(basicModule);
         
         ArrayList<MenuChoice> choices = new ArrayList<MenuChoice>();
         choices.add(new MenuChoice(
@@ -69,8 +72,8 @@ public class Startup {
         			@Override
         			public void run() {
         				String name = "Warning1";
-        				LocalDateTime startDate = LocalDateTime.of(2021, Month.JANUARY, 0, 0, 0, 0);
-        				LocalDateTime endDate = LocalDateTime.of(2021, Month.JANUARY, 0, 0, 0, 0);
+        				LocalDateTime startDate = LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0);
+        				LocalDateTime endDate = LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0);
         				Frequency frequency = Frequency.MINUTE;
         				int frequencyNumber = 1;
         				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_WARNING, name, startDate.format(DateTimeFormatter.ISO_DATE_TIME), endDate.format(DateTimeFormatter.ISO_DATE_TIME), frequency.toString(), Integer.toString(frequencyNumber)));
@@ -99,9 +102,6 @@ public class Startup {
         			}
         		}));
         Input.getInstance().renderMenu(choices);
-        
-        BasicModule basicModule = new BasicModule(bezirk);
-		Injector injector = Guice.createInjector(basicModule);
 	}
 
 }

@@ -4,7 +4,7 @@ import ui.output.Output;
 
 public class WarningHandler {
 
-	private static WarningHandler instance;
+	private static final WarningHandler INSTANCE = new WarningHandler();
 	private WarningCatalog warnings;
 
 	private WarningHandler() {
@@ -12,10 +12,7 @@ public class WarningHandler {
 	}
 
 	public static WarningHandler getInstance() {
-		if (instance == null) {
-			instance = new WarningHandler();
-		}
-		return instance;
+		return INSTANCE;
 	}
 
 	public WarningCatalog getWarnings() {

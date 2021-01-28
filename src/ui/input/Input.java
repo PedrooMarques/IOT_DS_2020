@@ -9,23 +9,21 @@ import i18n.Messages;
 
 public class Input {
 
-	private static Input instance;
+	private static final Input INSTANCE = new Input();
 
 	private Input() {
 
 	}
 
 	public static Input getInstance() {
-		if (instance == null) {
-			instance = new Input();
-		}
-		return instance;
+		return INSTANCE;
 	}
 
 	public void renderMenu(ArrayList<MenuChoice> choices) {
 		int option = 0;
 		Scanner scanner = new Scanner(System.in);
 		while (option != choices.size()) {
+			System.out.println();
 			for (int i = 0; i < choices.size(); i++) { 
 			    System.out.println((i + 1) + ". " + choices.get(i).getMessage());
 			}

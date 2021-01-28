@@ -12,7 +12,7 @@ import zirk.events.DeviceEvent;
 
 public class DeviceHandler {
 
-	private static DeviceHandler instance;
+	private static final DeviceHandler INSTANCE = new DeviceHandler();
 	
 	@Inject @Named("MotionDetector")
 	private static MotionDetector motionDetector;
@@ -24,14 +24,11 @@ public class DeviceHandler {
 	private static Wearable wearable;
 
 	private DeviceHandler() {
-		
+
 	}
 
 	public static DeviceHandler getInstance() {
-		if (instance == null) {
-			instance = new DeviceHandler();
-		}
-		return instance;
+		return INSTANCE;
 	}
 
 	public void handleEvent(DeviceEvent event, ZirkEndPoint sender) {

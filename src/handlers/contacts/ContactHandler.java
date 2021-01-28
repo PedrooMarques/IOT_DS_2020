@@ -2,7 +2,7 @@ package handlers.contacts;
 
 public class ContactHandler {
 
-	private static ContactHandler instance;
+	private static final ContactHandler INSTANCE = new ContactHandler();
 	private ContactCatalog contacts;
 
 	private ContactHandler() {
@@ -10,10 +10,7 @@ public class ContactHandler {
 	}
 
 	public static ContactHandler getInstance() {
-		if (instance == null) {
-			instance = new ContactHandler();
-		}
-		return instance;
+		return INSTANCE;
 	}
 
 	public ContactCatalog getContacts() {
