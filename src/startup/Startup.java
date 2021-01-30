@@ -32,7 +32,7 @@ public class Startup {
         BasicModule basicModule = new BasicModule(bezirk);
 		@SuppressWarnings("unused")
 		Injector injector = Guice.createInjector(basicModule);
-        
+
         ArrayList<MenuChoice> choices = new ArrayList<MenuChoice>();
         choices.add(new MenuChoice(
         		I18N.getString(Messages.ADD_CONTACT),
@@ -72,8 +72,8 @@ public class Startup {
         			@Override
         			public void run() {
         				String name = "Warning1";
-        				LocalDateTime startDate = LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0);
-        				LocalDateTime endDate = LocalDateTime.of(2021, Month.JANUARY, 1, 0, 0, 0);
+        				LocalDateTime startDate = LocalDateTime.of(2021, Month.JANUARY, 29, 10, 54, 0);
+        				LocalDateTime endDate = LocalDateTime.of(2021, Month.FEBRUARY, 1, 0, 0, 0);
         				Frequency frequency = Frequency.MINUTE;
         				int frequencyNumber = 1;
         				Output.getInstance().showMessage(I18N.getString(Messages.ADDING_WARNING, name, startDate.format(DateTimeFormatter.ISO_DATE_TIME), endDate.format(DateTimeFormatter.ISO_DATE_TIME), frequency.toString(), Integer.toString(frequencyNumber)));

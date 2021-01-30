@@ -1,10 +1,7 @@
 package zirk.devices;
 
-import java.time.LocalDateTime;
-
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
-import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
 import com.bezirk.middleware.messages.EventSet.EventReceiver;

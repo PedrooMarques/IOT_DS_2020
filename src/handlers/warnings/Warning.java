@@ -39,13 +39,13 @@ public class Warning implements Serializable {
 					w.start();
 				}
 			};
-			new Timer().schedule(start, startDate.isAfter(LocalDateTime.now()) ? Duration.between(startDate, LocalDateTime.now()).toMillis() : 0);
+			new Timer().schedule(start, startDate.isAfter(LocalDateTime.now()) ? Math.abs(Duration.between(LocalDateTime.now(), startDate).toMillis()) : 0);
 			TimerTask stop = new TimerTask() {
 				public void run() {
 					w.timer.cancel();
 				}
 			};
-			new Timer().schedule(stop, Duration.between(endDate, LocalDateTime.now()).toMillis());
+			new Timer().schedule(stop, Math.abs(Duration.between(endDate, LocalDateTime.now()).toMillis()));
 		}
 	}
 
@@ -75,7 +75,7 @@ public class Warning implements Serializable {
 
 	private void start() {
 		String message = I18N.getString(Messages.WARNING, name);
-		WarningHandler.getInstance().warn(message);
+		// WarningHandler.getInstance().warn(message);
 		TimerTask task = new TimerTask() {
 			public void run() {
 				WarningHandler.getInstance().warn(message);

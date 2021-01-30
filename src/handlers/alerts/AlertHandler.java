@@ -32,7 +32,8 @@ public class AlertHandler {
 	public void handleMotionDetection(MotionDetectionEvent event) {
 		for (Alert alert: this.alerts.list()) {
 			if (alert instanceof MotionDetectionAlert) {
-				((MotionDetectionAlert)alert).alert();
+				String message = I18N.getString(Messages.MOTION_DETECTION_ALERT, ((MotionDetectionAlert)alert).getLocation());
+		    	this.alert(message);
 			}
 			if (alert instanceof InactivityAlert) {
 				((InactivityAlert)alert).cancel();
@@ -42,6 +43,11 @@ public class AlertHandler {
 
 	public void handleEmergency(DistressButtonEvent event) {
 		String message = I18N.getString(Messages.DISTRESS_BUTTON_DETECTED);
+		this.alert(message);
+	}
+
+	public void alertInactivity(InactivityAlert alert) {
+		String message = I18N.getString(Messages.INACTIVITY_ALERT, Integer.toString(alert.getDurationMinutes()));
 		this.alert(message);
 	}
 

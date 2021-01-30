@@ -10,9 +10,11 @@ public aspect MotionDetector {
 		call(void DeviceHandler.handleEvent(DeviceEvent, ZirkEndPoint)) && args(event, sender);
 
 	void around(DeviceEvent event, ZirkEndPoint sender): motionDetectionEventDetected(event, sender) {
+		proceed(event, sender);
         if (event instanceof MotionDetectionEvent) {
         	AlertHandler.getInstance().handleMotionDetection((MotionDetectionEvent)event);
         	System.err.println("Received Motion Detection event from Motion Detector");
         }
 	}
+
 }

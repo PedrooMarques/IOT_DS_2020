@@ -23,7 +23,7 @@ public aspect Inactivity {
 				new Runnable() {
 					@Override
 					public void run() {
-						int durationMinutes = 60;
+						int durationMinutes = 1;
 						Output.getInstance().showMessage(I18N.getString(Messages.ADDING_INACTIVITY_ALERT, Integer.toString(durationMinutes)));
 						AlertHandler.getInstance().getAlerts().add(new InactivityAlert(durationMinutes));
 					}

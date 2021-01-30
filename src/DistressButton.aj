@@ -13,6 +13,7 @@ public aspect DistressButton {
 		call(void DeviceHandler.handleEvent(DeviceEvent, ZirkEndPoint)) && args(event, sender);
 
 	void around(DeviceEvent event, ZirkEndPoint sender): distressButtonEventDetected(event, sender) {
+		proceed(event, sender);
         if (event instanceof DistressButtonEvent) {
         	System.err.println("Received Distress Button event from Wearable");
         	AlertHandler.getInstance().handleEmergency((DistressButtonEvent)event);

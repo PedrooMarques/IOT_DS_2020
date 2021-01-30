@@ -3,15 +3,13 @@ package handlers.alerts;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import i18n.I18N;
-import i18n.Messages;
-
 /**
  * @author G16
  *
  */
 public class InactivityAlert extends Alert {
-	
+
+	private static final long serialVersionUID = 1L;
 	private final int durationMinutes;
 	private final Timer timer;
 
@@ -22,14 +20,13 @@ public class InactivityAlert extends Alert {
 		super(AlertType.INACTIVITY);
 		this.durationMinutes = durationMinutes;
 		this.timer = new Timer();
+		InactivityAlert alert = this;
 		timer.schedule(new TimerTask() {
             @Override
             public void run() {
-            	int minutes = durationMinutes / 1000 / 60;
-            	String message = I18N.getString(Messages.INACTIVITY_ALERT, Integer.toString(minutes));
-            	AlertHandler.getInstance().alert(message);
+            	AlertHandler.getInstance().alertInactivity(alert);
             }
-        }, this.durationMinutes);
+        }, this.durationMinutes * 60 * 1000);
 	}
 
 	/**

@@ -22,12 +22,12 @@ public class Input {
 	public void renderMenu(ArrayList<MenuChoice> choices) {
 		int option = 0;
 		Scanner scanner = new Scanner(System.in);
-		while (option != choices.size()) {
+		while (option != choices.size() + 1) {
 			System.out.println();
 			for (int i = 0; i < choices.size(); i++) { 
 			    System.out.println((i + 1) + ". " + choices.get(i).getMessage());
 			}
-			System.out.println((choices.size() + 1) + ". Exit");
+			System.out.println((choices.size() + 1) + ". " + I18N.getString(Messages.EXIT));
 			System.out.println("-------------");
 			System.out.println(I18N.getString(Messages.CHOOSE_OPTION));
 			option = scanner.nextInt();
@@ -35,12 +35,12 @@ public class Input {
 				choices.get(option - 1).run();
 				continue;
 			}
-			if (option == choices.size() + 1) {
-				System.exit(0);
+			if (option < 1 || option > choices.size() + 1) {
+				System.out.println(I18N.getString(Messages.CHOICE_NOT_FOUND));
 			}
-			System.out.println(I18N.getString(Messages.CHOICE_NOT_FOUND));
 		}
 		scanner.close();
+		System.exit(0);
 	}
 
 }

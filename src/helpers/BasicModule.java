@@ -29,6 +29,9 @@ public class BasicModule extends AbstractModule {
 
 	@Override
 	public void configure() {
+		bind(Bezirk.class)
+			.annotatedWith(Names.named("Bezirk"))
+			.toInstance(this.bezirk);
 		bind(MotionDetector.class)
 			.annotatedWith(Names.named("MotionDetector"))
 			.toInstance(new MotionDetector(bezirk));

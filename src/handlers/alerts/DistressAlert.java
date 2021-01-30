@@ -9,6 +9,8 @@ import i18n.Messages;
  */
 public class DistressAlert extends Alert {
 
+	private static final long serialVersionUID = 1L;
+
 	public DistressAlert() {
 		super(AlertType.DISTRESS);
 	}
